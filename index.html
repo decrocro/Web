@@ -4,7 +4,51 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CBS 2332 Complete Interactive Study System</title>
-<link rel="stylesheet" href="style.css">
+<style>
+
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:#f5f7fb;color:#172033;display:flex}#sidebar{position:fixed;left:0;top:0;width:340px;height:100vh;background:#101827;color:white;padding:22px;overflow:auto}main{margin-left:340px;padding:32px;width:calc(100% - 340px)}.brand{display:flex;gap:12px;align-items:center;margin-bottom:18px}.logo{width:52px;height:52px;border-radius:18px;background:linear-gradient(135deg,#60a5fa,#c084fc);display:grid;place-items:center;font-weight:900}.brand h1{font-size:22px;margin:0}.brand p{margin:4px 0 0;color:#cbd5e1;font-size:13px}input[type=search]{width:100%;padding:13px;border-radius:14px;border:1px solid #34435e;background:#172238;color:white;margin-bottom:16px}.sideGroup{border-top:1px solid #26344f;padding-top:14px;margin-top:14px}.sideGroup h4{color:#93a4bf;font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin:0 0 10px}.sideGroup a,nav a{display:block;color:#eaf2ff;text-decoration:none;background:#172238;padding:11px 12px;border-radius:12px;font-size:14px;margin:7px 0}.sideGroup a:hover,nav a:hover,nav a.active{background:#2d4167}.meter{background:#172238;border:1px solid #334155;border-radius:16px;padding:14px;margin:18px 0;color:#dbeafe;font-size:14px}.small{font-size:12px;color:#93a4bf;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}.bar{height:10px;background:#0b1220;border-radius:99px;overflow:hidden;margin-top:10px}.bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,#60a5fa,#c084fc)}button{border:0;border-radius:12px;background:#243b63;color:white;font-weight:800;padding:11px 14px;cursor:pointer}button:hover{filter:brightness(1.08)}.danger{background:#b42318}.hero{background:linear-gradient(135deg,#fff,#eef4ff);border:1px solid #e2e8f0;border-radius:28px;padding:32px;display:flex;justify-content:space-between;gap:22px;box-shadow:0 14px 35px rgba(15,23,42,.07)}.hero h2{font-size:40px;line-height:1.05;margin:14px 0 8px}.hero p{color:#536177;font-size:17px;max-width:760px}.pill{display:inline-block;background:#e7f0ff;color:#1d4ed8;border-radius:99px;padding:7px 12px;font-weight:900;font-size:13px}.panel{background:white;border:1px solid #e2e8f0;border-radius:22px;padding:18px;min-width:255px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:22px 0}.stats div{background:white;border:1px solid #e2e8f0;border-radius:20px;padding:18px;box-shadow:0 10px 25px rgba(15,23,42,.04)}.stats strong{font-size:30px;display:block}.stats span{color:#64748b}.toolCard{background:white;border:1px solid #e2e8f0;border-radius:26px;padding:22px;margin:24px 0;box-shadow:0 10px 30px rgba(15,23,42,.05)}.sectionTitle{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:15px}.sectionTitle h3{font-size:29px;margin:8px 0 4px}.sectionTitle p{margin:0;color:#64748b}.testActions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.question{background:#f8fafc;border:1px solid #e2e8f0;border-radius:18px;padding:16px;margin:12px 0}.question h4{margin:0 0 10px}.options{display:grid;gap:8px;margin-top:10px}.option{display:flex;gap:10px;align-items:flex-start;background:white;border:1px solid #e2e8f0;border-radius:12px;padding:10px;cursor:pointer}.option.correct{border-color:#22c55e;background:#ecfdf3}.option.wrong{border-color:#ef4444;background:#fff1f1}.textarea{width:100%;min-height:110px;border:1px solid #cbd5e1;border-radius:12px;padding:12px;font:inherit}.sampleAnswer{display:none;margin-top:10px;background:#eaf7ef;border:1px solid #a8e3bd;padding:12px;border-radius:12px}.scoreBox{background:#eff6ff;border:1px solid #bfdbfe;border-radius:18px;padding:16px;margin-top:15px}.hidden{display:none!important}.mindmap{overflow:auto;padding:12px}.mapRoot{text-align:center;background:#172238;color:white;border-radius:24px;padding:18px;font-size:25px;font-weight:900;margin:0 auto 24px;max-width:360px}.mapBranches{display:grid;grid-template-columns:repeat(5,minmax(210px,1fr));gap:14px;min-width:900px}.branch{background:#f8fafc;border:1px solid #e2e8f0;border-radius:20px;padding:15px;position:relative}.branch:before{content:"";position:absolute;top:-24px;left:50%;width:2px;height:24px;background:#94a3b8}.branch h4{margin:0 0 10px;color:#1d4ed8}.branch li{margin:7px 0}.formulaGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}.formula{background:#f8fafc;border:1px solid #e2e8f0;border-radius:18px;padding:16px}.formula code{display:block;background:#172238;color:white;border-radius:12px;padding:12px;margin:10px 0;font-size:15px}.tipsGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}.tipsGrid div{background:#f8fafc;border:1px solid #e2e8f0;border-radius:18px;padding:16px}.deck{margin:24px 0}.deckTitle{display:flex;align-items:end;justify-content:space-between;gap:12px}.deckTitle h3{font-size:26px;margin:0 0 8px}.deckTitle p{color:#64748b;margin:0 0 8px}.card{background:white;border:1px solid #e2e8f0;border-radius:24px;padding:16px;box-shadow:0 10px 30px rgba(15,23,42,.05)}details.slide{border:1px solid #e8eef7;border-radius:18px;background:#fcfdff;margin:12px 0;overflow:hidden}details.slide[open]{background:white}summary{list-style:none;cursor:pointer;padding:16px 18px;font-weight:900;display:flex;align-items:center;gap:12px}summary::-webkit-details-marker{display:none}.tick{appearance:none;width:22px;height:22px;border-radius:7px;border:2px solid #94a3b8;flex:0 0 auto}.tick:checked{background:#2563eb;border-color:#2563eb}.tick:checked:after{content:"✓";color:white;display:grid;place-items:center;font-weight:900}.slideBody{padding:0 20px 20px 54px}.slideText{white-space:pre-wrap;background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:15px;line-height:1.55}.empty{color:#64748b;font-style:italic}.studyBox{margin-top:12px;background:#fff8e6;border:1px solid #f4d58d;border-radius:14px;padding:12px;color:#674700}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}dialog{width:min(860px,92vw);border:0;border-radius:24px;padding:26px;box-shadow:0 25px 80px rgba(0,0,0,.3)}dialog::backdrop{background:rgba(15,23,42,.62)}#close{position:absolute;right:15px;top:12px;background:#e2e8f0;color:#172033;width:36px;height:36px;border-radius:50%;font-size:22px;padding:0}.flash{min-height:260px;background:linear-gradient(135deg,#172238,#2d4167);color:white;border-radius:24px;padding:28px;display:grid;place-items:center;text-align:center;cursor:pointer}.flash pre{text-align:left;white-space:pre-wrap;font-family:inherit;line-height:1.55}.muted{color:#64748b}@media(max-width:1100px){.stats{grid-template-columns:repeat(2,1fr)}.sectionTitle{align-items:flex-start;flex-direction:column}.mapBranches{grid-template-columns:repeat(5,210px)}}@media(max-width:900px){body{display:block}#sidebar{position:relative;width:100%;height:auto}main{margin-left:0;width:100%;padding:18px}.hero{flex-direction:column}.hero h2{font-size:31px}.stats{grid-template-columns:repeat(2,1fr)}}@media(max-width:520px){.stats{grid-template-columns:1fr}.testActions{justify-content:flex-start}.mapBranches{grid-template-columns:repeat(5,210px)}}@media print{#sidebar,.testActions,.actions,#close,.toolbar button{display:none!important}main{margin:0;width:100%;padding:0}.hero,.card,.toolCard{box-shadow:none}details.slide{break-inside:avoid}details.slide:not([open]) .slideBody{display:block}.slideBody{padding-left:20px}.question,.formula,.branch{break-inside:avoid}}
+
+.examFocus{border:2px solid #bfdbfe;background:linear-gradient(180deg,#ffffff,#f8fbff)}
+.examStructure{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0 20px}
+.examStructure div{background:#172238;color:white;border-radius:18px;padding:16px}
+.examStructure strong{display:block;font-size:22px}
+.examStructure span{display:block;color:#cbd5e1;margin-top:5px;font-size:13px}
+.focusLayout{display:grid;grid-template-columns:2fr 1fr;gap:16px;align-items:start}
+.focusCard{background:#f8fafc;border:1px solid #e2e8f0;border-radius:18px;padding:15px;margin:12px 0}
+.focusCard h5{margin:0 0 8px;font-size:18px;color:#1d4ed8}
+.focusCard .tag{display:inline-block;background:#e0f2fe;color:#075985;border-radius:999px;padding:4px 9px;font-size:12px;font-weight:800;margin-bottom:8px}
+.focusCard details{background:white;border:1px solid #e2e8f0;border-radius:14px;margin-top:10px}
+.focusCard summary{padding:11px 13px;font-size:14px}
+.focusCard .inside{padding:0 13px 13px}
+.priorityList{background:#fff8e6;border:1px solid #f4d58d;border-radius:18px;padding:18px 18px 18px 34px}
+.priorityList li{margin:10px 0}
+.subTool{margin-top:22px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:20px;padding:16px}
+.blankItem{display:grid;grid-template-columns:1fr minmax(140px,220px);gap:10px;align-items:center;background:white;border:1px solid #e2e8f0;border-radius:14px;padding:12px;margin:10px 0}
+.blankItem input{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:10px}
+.blankItem.correct{border-color:#22c55e;background:#ecfdf3}
+.blankItem.wrong{border-color:#ef4444;background:#fff1f1}
+.blankAnswer{display:none;color:#166534;font-weight:800;margin-top:6px}
+.blankItem.wrong .blankAnswer,.blankItem.correct .blankAnswer{display:block}
+@media(max-width:1000px){.examStructure{grid-template-columns:repeat(2,1fr)}.focusLayout{grid-template-columns:1fr}.blankItem{grid-template-columns:1fr}}
+@media(max-width:520px){.examStructure{grid-template-columns:1fr}}
+
+.originalSlides{border:2px solid #e9d5ff;background:linear-gradient(180deg,#ffffff,#fbf7ff)}
+.referenceNotice{display:flex;gap:10px;align-items:flex-start;background:#faf5ff;border:1px solid #e9d5ff;border-radius:16px;padding:14px;margin-bottom:16px;color:#4c1d95}
+.referenceNotice strong{white-space:nowrap}
+.referenceGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.refCard{background:white;border:1px solid #e2e8f0;border-radius:20px;padding:16px;box-shadow:0 8px 22px rgba(15,23,42,.05)}
+.refCard h4{margin:0 0 8px;color:#1d4ed8}
+.refCard p{color:#64748b;margin:0 0 14px}
+.refActions{display:flex;gap:8px;flex-wrap:wrap}
+.refActions a{display:inline-block;text-decoration:none;background:#243b63;color:white;font-weight:800;padding:10px 12px;border-radius:12px}
+.refActions a.secondary{background:#475569}
+.refActions a:hover{filter:brightness(1.08)}
+.embedHint{margin-top:12px;font-size:13px;color:#64748b}
+.slidePreview{margin-top:12px;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;background:#f8fafc}
+.slidePreview iframe{width:100%;height:420px;border:0;display:block}
+@media(max-width:600px){.referenceNotice{display:block}.slidePreview iframe{height:330px}}
+
+</style>
 </head>
 <body>
 <aside id="sidebar">
@@ -47,9 +91,9 @@
 <main>
   <section class="hero" id="dashboard">
     <div>
-      <span class="pill">Version 3</span>
+      <span class="pill">GitHub Fixed Version</span>
       <h2>CBS 2332 Complete Interactive Study System</h2>
-      <p>Now includes a mixed pretest, full slide-by-slide text, mind map, formula sheet, flashcards, search, progress tracking, and a cleaner sidebar.</p>
+      <p>This GitHub-fixed version has the CSS and JavaScript built directly into the page, so the layout and interactive tools work more reliably on GitHub Pages.</p>
     </div>
     <div class="panel">
       <strong>Recommended study order</strong>
@@ -224,6 +268,293 @@
 <script id="formulaData" type="application/json">[{"name": "Three-Point Estimate", "formula": "(Optimistic + 4 × Most Likely + Pessimistic) ÷ 6", "use": "Estimate activity duration more realistically."}, {"name": "Early Finish", "formula": "EF = ES + Duration", "use": "Forward pass calculation."}, {"name": "Late Start", "formula": "LS = LF - Duration", "use": "Backward pass calculation."}, {"name": "Slack", "formula": "Slack = LS - ES", "use": "Find how long an activity can delay without delaying the project."}, {"name": "Earned Value", "formula": "EV = % Complete × BAC", "use": "Measure the planned value of work actually completed."}, {"name": "Cost Performance Index", "formula": "CPI = EV ÷ AC", "use": "Measure cost efficiency. CPI < 1.0 means cost overrun."}, {"name": "Cost Variance", "formula": "CV = EV - AC", "use": "Negative CV means over budget."}]</script>
 <script id="examData" type="application/json">{"focus": [{"title": "Project Life Cycle", "marks_focus": "Part 2 subjective focus", "must_know": ["Project life cycle is the framework for managing a project from initiation to closure.", "Initiation defines objectives, scope, feasibility, and authorization.", "Planning develops the roadmap, including scope, schedule, budget, resources, and risk planning.", "Execution carries out the planned work and produces deliverables.", "Monitoring and Controlling tracks progress, checks deviations, manages risks, and applies corrective action.", "Closure formalizes acceptance, hands over the final product, and closes project activities."], "answer_template": "The project life cycle consists of initiation, planning, execution, monitoring and controlling, and closure. It helps the project manager manage the project systematically from start to finish. Initiation defines the need and feasibility, planning prepares the scope, schedule and budget, execution carries out the work, monitoring and controlling tracks performance and corrects deviations, while closure completes handover and formal acceptance.", "likely_questions": ["Explain the project life cycle phases.", "Differentiate between execution and monitoring/controlling.", "Why is the project life cycle important?"]}, {"title": "Project Management", "marks_focus": "Part 2 subjective focus", "must_know": ["Project management is the process of managing project activities to meet project requirements.", "A project is temporary and creates a unique product, service, or result.", "Main project management processes include initiation, planning, execution, monitoring and controlling, and closure.", "Project management helps control time, cost, scope, quality, risk, communication, and stakeholder expectations.", "Benefits include better planning, improved communication, risk control, and successful delivery of objectives."], "answer_template": "Project management is the process of planning, organizing, executing, monitoring and closing project work to achieve specific objectives. It is important because projects are temporary, unique and resource-consuming. Proper project management helps control scope, time, cost, quality, risks and stakeholder communication so that the project can be completed successfully.", "likely_questions": ["Define project management.", "State the attributes of a project.", "Explain the benefits of project management."]}, {"title": "Teamwork Development", "marks_focus": "Part 2 subjective focus", "must_know": ["Project teams develop through forming, storming, norming, performing, and adjourning.", "Forming: members are introduced, uncertain, and learning the project goals.", "Storming: conflict may occur due to different opinions and working styles.", "Norming: team norms, processes, trust, and cooperation improve.", "Performing: the team works effectively and focuses on achieving project goals.", "Adjourning: the team is dissolved after project completion.", "Effective teams need clear goals, open communication, trust, collaboration, accountability, leadership, and constructive conflict resolution."], "answer_template": "Teamwork development explains how a project team grows and becomes effective. The stages are forming, storming, norming, performing and adjourning. In forming, members get to know each other. In storming, conflicts may happen. In norming, the team builds rules and cooperation. In performing, the team works at high performance. In adjourning, the team ends after project completion.", "likely_questions": ["Explain the five stages of team development.", "What makes a project team effective?", "Why does conflict occur in project teams?"]}, {"title": "Project Budgeting", "marks_focus": "Part 2 subjective focus", "must_know": ["Project budgeting aggregates estimated costs to establish an authorized cost baseline.", "Budgeting starts by allocating total estimates to WBS work packages.", "Costs are aggregated to calculate total budgeted cost.", "Contingency reserves are added to form the final cost baseline.", "S-Curve shows cumulative budgeted cost over time.", "Actual Cost (AC) is the cost actually incurred.", "Committed Cost is obligated but not yet paid.", "Earned Value (EV) = % Complete × BAC.", "CPI < 1.0 indicates cost overrun; negative CV indicates over budget."], "answer_template": "Project budgeting is the process of allocating and aggregating estimated project costs to create an authorized cost baseline. The budget is distributed to WBS work packages, combined into total budgeted cost and adjusted with contingency reserves. Budgeting helps the project manager compare planned cost with actual cost, monitor cost performance and avoid overspending.", "likely_questions": ["Explain project budgeting.", "Differentiate Actual Cost and Committed Cost.", "What is the purpose of an S-Curve?", "Explain CPI and CV."]}, {"title": "Project Planning", "marks_focus": "Part 2 subjective focus", "must_know": ["Project planning develops the roadmap for project execution.", "SMART objectives make project goals specific, measurable, achievable, realistic/relevant and time-bound.", "WBS decomposes total project scope into smaller work packages.", "RACI clarifies roles: Responsible, Accountable, Consulted, Informed.", "Scheduling identifies activities, sequences dependencies, estimates resources, and estimates durations.", "Network diagrams show logical dependencies and help identify the critical path.", "Forward pass calculates ES and EF; backward pass calculates LS and LF.", "Slack = LS - ES; critical path has zero slack.", "Gantt charts visualize activities against time."], "answer_template": "Project planning is the process of preparing how the project will be carried out. It includes setting SMART objectives, developing a WBS, assigning responsibilities using RACI, estimating durations, sequencing activities, developing a schedule, identifying the critical path and presenting the plan using tools such as network diagrams and Gantt charts.", "likely_questions": ["Explain the purpose of WBS.", "What is RACI?", "How is the critical path identified?", "Why are Gantt charts useful?"]}], "fill_blanks": [{"q": "A project is a __________ endeavor undertaken to create a unique product, service, or result.", "a": "temporary"}, {"q": "Every project has a definite beginning and __________.", "a": "end"}, {"q": "The first phase of the project life cycle is __________.", "a": "initiation"}, {"q": "The phase that develops a detailed roadmap for execution is __________.", "a": "planning"}, {"q": "Monitoring and controlling identifies deviations and takes __________ action.", "a": "corrective"}, {"q": "The final phase that formalizes acceptance is __________.", "a": "closure"}, {"q": "The five team development stages are forming, storming, norming, performing and __________.", "a": "adjourning"}, {"q": "During the __________ stage, conflict can occur because of different opinions and working styles.", "a": "storming"}, {"q": "Ethical behavior promotes honesty, integrity, fairness and __________.", "a": "responsibility"}, {"q": "A project __________ officially authorizes a project’s existence.", "a": "charter"}, {"q": "A __________ case justifies the project’s feasibility, benefits and costs.", "a": "business"}, {"q": "The Power/Interest Grid maps stakeholders based on power and __________.", "a": "interest"}, {"q": "SMART objectives should be specific, measurable, achievable and time-__________.", "a": "bound"}, {"q": "The WBS decomposes project scope into smaller work __________.", "a": "packages"}, {"q": "In RACI, R means __________.", "a": "Responsible"}, {"q": "In RACI, A means __________.", "a": "Accountable"}, {"q": "EF = ES + __________.", "a": "Duration"}, {"q": "LS = LF - __________.", "a": "Duration"}, {"q": "Slack = LS - __________.", "a": "ES"}, {"q": "Activities on the critical path have __________ slack.", "a": "zero"}, {"q": "A Gantt chart is a horizontal __________ chart used to show project schedule.", "a": "bar"}, {"q": "Actual Cost is commonly abbreviated as __________.", "a": "AC"}, {"q": "Earned Value is commonly abbreviated as __________.", "a": "EV"}, {"q": "EV = % Complete × __________.", "a": "BAC"}, {"q": "CPI less than 1.0 indicates cost __________.", "a": "overrun"}], "objective_exam": [{"q": "How many objective questions are in the final exam tips?", "options": ["20", "30", "50", "70"], "answer": "30"}, {"q": "The objective section covers which chapters?", "options": ["Chapter 1 only", "Chapter 1 until Chapter 4", "Chapter 3 only", "Chapter 4 only"], "answer": "Chapter 1 until Chapter 4"}, {"q": "How many marks are allocated to subjective questions?", "options": ["30", "50", "70", "100"], "answer": "70"}, {"q": "Part 1 of the subjective question is mainly what format?", "options": ["Essay only", "Fill in the blanks", "Presentation", "Coding"], "answer": "Fill in the blanks"}, {"q": "Which topic was specifically mentioned for Part 2 subjective?", "options": ["Project Life Cycle", "Database Normalization", "Subnetting", "HTML Forms"], "answer": "Project Life Cycle"}, {"q": "Which cost topic was specifically mentioned for Part 2?", "options": ["Project Budgeting", "Python Programming", "Cyber Law", "Routing Protocol"], "answer": "Project Budgeting"}, {"q": "Teamwork Development belongs mainly to which chapter?", "options": ["Chapter 1", "Chapter 2", "Chapter 4", "None"], "answer": "Chapter 2"}, {"q": "Project Planning belongs mainly to which chapter deck?", "options": ["Planning and Controlling", "Cost Planning only", "Project Team only", "Ethics only"], "answer": "Planning and Controlling"}, {"q": "Which phase closes the project officially?", "options": ["Initiation", "Planning", "Closure", "Storming"], "answer": "Closure"}, {"q": "Which team stage comes after storming?", "options": ["Forming", "Norming", "Adjourning", "Closure"], "answer": "Norming"}]}</script>
 <script id="referenceSlidesData" type="application/json">[{"title": "CBS 2332 CHAPTER 1 - Project_Management_Concepts", "pptx": "original_slides/CBS_2332_CHAPTER_1_-_Project_Management_Concepts.pptx", "pdf": "slide_pdfs/CBS_2332_CHAPTER_1_-_Project_Management_Concepts.pdf"}, {"title": "CBS2332 CHAPTER 2- THE PROJECT TEAM", "pptx": "original_slides/CBS2332_CHAPTER_2-_THE_PROJECT_TEAM.pptx", "pdf": "slide_pdfs/CBS2332_CHAPTER_2-_THE_PROJECT_TEAM.pdf"}, {"title": "[MR ZAKI] CBS 2332 CHAPTER 3 - Project Initiation & Stakeholder", "pptx": "original_slides/MR_ZAKI_CBS_2332_CHAPTER_3_-_Project_Initiation_&_Stakeholder.pptx", "pdf": "slide_pdfs/MR_ZAKI_CBS_2332_CHAPTER_3_-_Project_Initiation_&_Stakeholder.pdf"}, {"title": "CBS 2332 CHAPTER 3 - Planning and Controlling", "pptx": "original_slides/CBS_2332_CHAPTER_3_-_Planning_and_Controlling.pptx", "pdf": "slide_pdfs/CBS_2332_CHAPTER_3_-_Planning_and_Controlling.pdf"}, {"title": "CBS 2332 CHAPTER 4- Cost Planning", "pptx": "original_slides/CBS_2332_CHAPTER_4-_Cost_Planning.pptx", "pdf": "slide_pdfs/CBS_2332_CHAPTER_4-_Cost_Planning.pdf"}]</script>
-<script src="script.js"></script>
+<script>
+
+const decks = JSON.parse(document.getElementById('decksData').textContent);
+const pretest = JSON.parse(document.getElementById('pretestData').textContent);
+const mindmap = JSON.parse(document.getElementById('mindmapData').textContent);
+const formulas = JSON.parse(document.getElementById('formulaData').textContent);
+
+const deckNav = document.getElementById('deckNav');
+const content = document.getElementById('content');
+const dialog = document.getElementById('dialog');
+const dialogContent = document.getElementById('dialogContent');
+
+function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function id(s){return s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'')}
+function key(di,si){return `v3-slide-${di}-${si}`}
+function firstLine(text){let line=(text||'').split(/
++/).map(x=>x.trim()).find(Boolean); return line || 'Blank / visual-only slide'}
+function summarize(text){
+  if(!text) return "This slide appears to be blank or visual-only in the extracted text.";
+  let lines=text.split(/
++/).map(x=>x.trim()).filter(Boolean);
+  let useful=lines.filter(x=>!x.startsWith('http') && !x.toLowerCase().startsWith('source:') && !/^_+$/.test(x));
+  return useful.slice(0,4).join(" • ") || "Image/source/reference slide.";
+}
+function renderStats(){
+  document.getElementById('deckCount').textContent = decks.length;
+  document.getElementById('slideCount').textContent = decks.reduce((n,d)=>n+d.slides.length,0);
+  document.getElementById('questionCount').textContent = pretest.length;
+}
+function renderSlides(){
+  deckNav.innerHTML=decks.map(d=>`<a href="#${id(d.title)}">${esc(d.title.replace('CBS 2332 ','').replace('CBS2332 ','').slice(0,44))}</a>`).join('');
+  let html='';
+  decks.forEach((deck,di)=>{
+    html+=`<article class="deck" id="${id(deck.title)}">
+      <div class="deckTitle"><div><h3>${esc(deck.title)}</h3><p>${deck.slide_count} slides</p></div></div>
+      <div class="card">`;
+    deck.slides.forEach((slide,si)=>{
+      const text=slide.text||'';
+      const checked=localStorage.getItem(key(di,si))==='1'?'checked':'';
+      html+=`<details class="slide" open data-text="${esc((deck.title+' '+text).toLowerCase())}">
+        <summary><input class="tick" type="checkbox" data-key="${key(di,si)}" ${checked} onclick="event.stopPropagation()">Slide ${slide.number}: ${esc(firstLine(text))}</summary>
+        <div class="slideBody">
+          <div class="slideText ${text?'':'empty'}">${text?esc(text):'No extractable text found. This is likely a blank, image-only, or decorative slide.'}</div>
+          <div class="studyBox"><strong>Study focus:</strong> ${esc(summarize(text))}</div>
+          <div class="actions">
+            <button onclick="flash(${di},${si})">Flashcard this slide</button>
+            <button onclick="copySlide(${di},${si})">Copy slide text</button>
+          </div>
+        </div>
+      </details>`;
+    });
+    html+='</div></article>';
+  });
+  content.innerHTML=html;
+  bindTicks(); progress();
+}
+function renderPretest(){
+  const box = document.getElementById('pretestContent');
+  box.innerHTML = pretest.map((q,i)=>{
+    if(q.type==='mcq'){
+      return `<div class="question" data-type="mcq" data-answer="${esc(q.answer)}">
+        <h4>${i+1}. [${esc(q.topic)}] ${esc(q.q)}</h4>
+        <div class="options">${q.options.map((opt,j)=>`<label class="option"><input type="radio" name="q${i}" value="${esc(opt)}"> <span>${esc(opt)}</span></label>`).join('')}</div>
+        <div class="sampleAnswer"><strong>Explanation:</strong> ${esc(q.explain)}</div>
+      </div>`;
+    }
+    if(q.type==='truefalse'){
+      return `<div class="question" data-type="truefalse" data-answer="${esc(q.answer)}">
+        <h4>${i+1}. [${esc(q.topic)}] ${esc(q.q)}</h4>
+        <div class="options">
+          <label class="option"><input type="radio" name="q${i}" value="True"> <span>True</span></label>
+          <label class="option"><input type="radio" name="q${i}" value="False"> <span>False</span></label>
+        </div>
+        <div class="sampleAnswer"><strong>Explanation:</strong> ${esc(q.explain)}</div>
+      </div>`;
+    }
+    return `<div class="question" data-type="short">
+      <h4>${i+1}. [${esc(q.topic)}] ${esc(q.q)}</h4>
+      <textarea class="textarea" placeholder="Write your answer here..."></textarea>
+      <button class="showSample" type="button">Show sample answer</button>
+      <div class="sampleAnswer"><strong>Sample answer:</strong> ${esc(q.sample)}</div>
+    </div>`;
+  }).join('');
+  document.querySelectorAll('.showSample').forEach(btn=>btn.addEventListener('click',e=>e.target.nextElementSibling.style.display='block'));
+}
+function renderMindmap(){
+  const root = Object.keys(mindmap)[0];
+  const branches = mindmap[root];
+  document.getElementById('mindmapContent').innerHTML = `<div class="mapRoot">${esc(root)}</div><div class="mapBranches">`+
+    Object.entries(branches).map(([k,items])=>`<div class="branch"><h4>${esc(k)}</h4><ul>${items.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`).join('')+
+    `</div>`;
+}
+function renderFormulas(){
+  document.getElementById('formulaContent').innerHTML = formulas.map(f=>`<div class="formula"><h4>${esc(f.name)}</h4><code>${esc(f.formula)}</code><p>${esc(f.use)}</p></div>`).join('');
+}
+function bindTicks(){document.querySelectorAll('.tick').forEach(t=>t.addEventListener('change',e=>{localStorage.setItem(e.target.dataset.key,e.target.checked?'1':'0');progress()}))}
+function progress(){let total=document.querySelectorAll('.tick').length;let done=[...document.querySelectorAll('.tick')].filter(x=>x.checked).length;document.getElementById('done').textContent=done;document.getElementById('total').textContent=total;document.getElementById('bar').style.width=(total?done/total*100:0)+'%';document.getElementById('completedPct').textContent=Math.round(total?done/total*100:0)+'%'}
+window.flash=(di,si)=>{
+  const deck=decks[di], slide=deck.slides[si]; let flipped=false;
+  function draw(){
+    dialogContent.innerHTML=`<h2>Flashcard</h2><p class="muted">${esc(deck.title)} · Slide ${slide.number}</p>
+      <div class="flash" id="fc">${flipped?`<pre>${esc(slide.text||'No extractable text.')}</pre>`:`<div><h3>Slide ${slide.number}</h3><p>${esc(firstLine(slide.text))}</p><p>Click to reveal full slide text.</p></div>`}</div>`;
+    document.getElementById('fc').onclick=()=>{flipped=!flipped;draw()}
+  }
+  draw(); dialog.showModal();
+}
+window.copySlide=async(di,si)=>{const d=decks[di],s=d.slides[si];await navigator.clipboard.writeText(`${d.title}
+Slide ${s.number}
+
+${s.text||''}`);alert('Slide text copied.')}
+document.getElementById('expand').onclick=()=>document.querySelectorAll('details.slide').forEach(x=>x.open=true);
+document.getElementById('collapse').onclick=()=>document.querySelectorAll('details.slide').forEach(x=>x.open=false);
+document.getElementById('print').onclick=()=>window.print();
+document.getElementById('close').onclick=()=>dialog.close();
+document.getElementById('reset').onclick=()=>{if(confirm('Reset slide progress?')){Object.keys(localStorage).filter(k=>k.startsWith('v3-slide-')).forEach(k=>localStorage.removeItem(k));document.querySelectorAll('.tick').forEach(x=>x.checked=false);progress()}};
+document.getElementById('startPretest').onclick=()=>{
+  document.querySelectorAll('#pretestContent input[type=radio]').forEach(x=>x.checked=false);
+  document.querySelectorAll('#pretestContent textarea').forEach(x=>x.value='');
+  document.querySelectorAll('.option').forEach(x=>x.classList.remove('correct','wrong'));
+  document.querySelectorAll('.sampleAnswer').forEach(x=>x.style.display='none');
+  document.getElementById('scoreBox').classList.add('hidden');
+  location.hash='pretest';
+};
+document.getElementById('checkPretest').onclick=()=>{
+  let objective=0, correct=0;
+  document.querySelectorAll('#pretestContent .question').forEach((q,i)=>{
+    const type=q.dataset.type;
+    if(type==='mcq'||type==='truefalse'){
+      objective++;
+      const ans=q.dataset.answer;
+      const chosen=q.querySelector('input[type=radio]:checked');
+      q.querySelectorAll('.option').forEach(opt=>{
+        const val=opt.querySelector('input').value;
+        opt.classList.remove('correct','wrong');
+        if(val===ans) opt.classList.add('correct');
+        if(chosen && val===chosen.value && val!==ans) opt.classList.add('wrong');
+      });
+      q.querySelector('.sampleAnswer').style.display='block';
+      if(chosen && chosen.value===ans) correct++;
+    } else {
+      q.querySelector('.sampleAnswer').style.display='block';
+    }
+  });
+  const subjective = pretest.filter(q=>q.type==='short').length;
+  const pct=Math.round(correct/objective*100);
+  const score=document.getElementById('scoreBox');
+  score.classList.remove('hidden');
+  score.innerHTML=`<h3>Objective Score: ${correct}/${objective} (${pct}%)</h3><p>There are ${subjective} subjective questions. Compare your answers with the sample answers and self-mark them.</p>`;
+  score.scrollIntoView({behavior:'smooth',block:'center'});
+};
+document.getElementById('search').addEventListener('input',e=>{
+  const q=e.target.value.toLowerCase().trim();
+  document.querySelectorAll('details.slide').forEach(sl=>{
+    const match=!q||sl.dataset.text.includes(q);
+    sl.classList.toggle('hidden',!match);
+    if(q&&match)sl.open=true;
+  });
+  document.querySelectorAll('.deck').forEach(deck=>{
+    deck.classList.toggle('hidden',![...deck.querySelectorAll('details.slide')].some(x=>!x.classList.contains('hidden')));
+  });
+});
+document.getElementById('flashcards').onclick=()=>{
+  const cards=[]; decks.forEach((d,di)=>d.slides.forEach((s,si)=>cards.push({d,s,di,si})));
+  let i=0, flipped=false;
+  function draw(){
+    const c=cards[i];
+    dialogContent.innerHTML=`<h2>All Slide Flashcards</h2><p class="muted">${i+1}/${cards.length} · ${esc(c.d.title)} · Slide ${c.s.number}</p>
+      <div class="flash" id="allfc">${flipped?`<pre>${esc(c.s.text||'No extractable text.')}</pre>`:`<div><h3>Slide ${c.s.number}</h3><p>${esc(firstLine(c.s.text))}</p><p>Click to reveal full slide text.</p></div>`}</div>
+      <div class="testActions" style="margin-top:12px"><button id="prev">Previous</button><button id="flip">Flip</button><button id="next">Next</button></div>`;
+    document.getElementById('allfc').onclick=()=>{flipped=!flipped;draw()};
+    document.getElementById('flip').onclick=()=>{flipped=!flipped;draw()};
+    document.getElementById('prev').onclick=()=>{i=(i-1+cards.length)%cards.length;flipped=false;draw()};
+    document.getElementById('next').onclick=()=>{i=(i+1)%cards.length;flipped=false;draw()};
+  }
+  draw(); dialog.showModal();
+};
+window.addEventListener("scroll", ()=>{
+  let current="";
+  decks.forEach(d=>{
+    const el=document.getElementById(id(d.title));
+    if(el && el.getBoundingClientRect().top<150) current=id(d.title);
+  });
+  document.querySelectorAll("#deckNav a").forEach(a=>a.classList.toggle("active", a.getAttribute("href")==="#"+current));
+});
+renderStats(); renderPretest(); renderMindmap(); renderFormulas(); renderSlides();
+
+const examData = JSON.parse(document.getElementById('examData').textContent);
+
+function renderExamFocus(){
+  const cards = document.getElementById('examFocusCards');
+  if(!cards) return;
+  cards.innerHTML = examData.focus.map((f,idx)=>`
+    <div class="focusCard">
+      <span class="tag">${esc(f.marks_focus)}</span>
+      <h5>${idx+1}. ${esc(f.title)}</h5>
+      <ul>${f.must_know.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>
+      <details>
+        <summary>Ready-made subjective answer template</summary>
+        <div class="inside"><p>${esc(f.answer_template)}</p></div>
+      </details>
+      <details>
+        <summary>Likely question styles</summary>
+        <div class="inside"><ul>${f.likely_questions.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
+      </details>
+    </div>
+  `).join('');
+
+  const obj = document.getElementById('examObjectiveDrill');
+  obj.innerHTML = examData.objective_exam.map((q,i)=>`
+    <div class="question examObj" data-answer="${esc(q.answer)}">
+      <h4>${i+1}. ${esc(q.q)}</h4>
+      <div class="options">${q.options.map(opt=>`<label class="option"><input type="radio" name="examObj${i}" value="${esc(opt)}"> <span>${esc(opt)}</span></label>`).join('')}</div>
+    </div>
+  `).join('');
+
+  const blanks = document.getElementById('fillBlankDrill');
+  blanks.innerHTML = examData.fill_blanks.map((q,i)=>`
+    <div class="blankItem" data-answer="${esc(q.a.toLowerCase())}">
+      <div>
+        <strong>${i+1}.</strong> ${esc(q.q)}
+        <div class="blankAnswer">Answer: ${esc(q.a)}</div>
+      </div>
+      <input type="text" placeholder="Your answer">
+    </div>
+  `).join('');
+}
+
+document.addEventListener('click', function(e){
+  if(e.target && e.target.id === 'checkExamObjective'){
+    let total=0, correct=0;
+    document.querySelectorAll('.examObj').forEach(q=>{
+      total++;
+      const ans = q.dataset.answer;
+      const chosen = q.querySelector('input[type=radio]:checked');
+      q.querySelectorAll('.option').forEach(opt=>{
+        const val = opt.querySelector('input').value;
+        opt.classList.remove('correct','wrong');
+        if(val===ans) opt.classList.add('correct');
+        if(chosen && val===chosen.value && val!==ans) opt.classList.add('wrong');
+      });
+      if(chosen && chosen.value===ans) correct++;
+    });
+    const box = document.getElementById('examObjectiveScore');
+    box.classList.remove('hidden');
+    box.innerHTML = `<h3>Objective Drill Score: ${correct}/${total}</h3><p>Review the green answers, then revise the linked topic in the focus cards above.</p>`;
+    box.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+
+  if(e.target && e.target.id === 'checkFillBlanks'){
+    let total=0, correct=0;
+    document.querySelectorAll('.blankItem').forEach(item=>{
+      total++;
+      const ans = item.dataset.answer.trim().toLowerCase();
+      const val = item.querySelector('input').value.trim().toLowerCase();
+      item.classList.remove('correct','wrong');
+      if(val && val === ans){ item.classList.add('correct'); correct++; }
+      else item.classList.add('wrong');
+    });
+    const box = document.getElementById('fillBlankScore');
+    box.classList.remove('hidden');
+    box.innerHTML = `<h3>Fill-in-the-Blanks Score: ${correct}/${total}</h3><p>Spelling matters for this drill. Some answers may have equivalent wording in real exams, but memorize the key terms shown.</p>`;
+    box.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+});
+
+renderExamFocus();
+
+const referenceSlidesData = JSON.parse(document.getElementById('referenceSlidesData').textContent);
+
+function renderReferenceSlides(){
+  const box = document.getElementById('referenceSlideCards');
+  if(!box) return;
+  box.innerHTML = referenceSlidesData.map((item, idx)=>{
+    const pdfBtn = item.pdf ? `<a href="${esc(item.pdf)}" target="_blank">View PDF</a>` : '';
+    const pptxBtn = `<a class="secondary" href="${esc(item.pptx)}" download>Download PPTX</a>`;
+    const preview = item.pdf ? `<details class="slidePreview"><summary>Preview inside website</summary><iframe src="${esc(item.pdf)}"></iframe></details>` : `<div class="embedHint">PDF preview was not generated, but the original PPTX is included for download.</div>`;
+    return `<div class="refCard">
+      <h4>${idx+1}. ${esc(item.title)}</h4>
+      <p>Original lecturer slide deck reference.</p>
+      <div class="refActions">${pdfBtn}${pptxBtn}</div>
+      ${preview}
+    </div>`;
+  }).join('');
+}
+
+renderReferenceSlides();
+
+</script>
 </body>
 </html>
