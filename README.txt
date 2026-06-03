@@ -14,18 +14,6 @@ What is new:
 - Progress tracking
 - Phone-friendly layout
 
-How to use locally:
-Open index.html in a browser.
-
-How to publish to GitHub Pages:
-1. Create a GitHub repository.
-2. Upload index.html, style.css, script.js, and extracted_slide_text.json.
-3. Go to Settings > Pages.
-4. Source: Deploy from a branch.
-5. Branch: main, folder: /root.
-6. Save and open the GitHub Pages link on your phone.
-
-
 Version 4 added:
 - Sir's final exam tips focus section
 - 100-mark final exam structure
