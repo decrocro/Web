@@ -3,558 +3,1118 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CBS 2332 Complete Interactive Study System</title>
+<title>CBS 2332 Normal Study Website</title>
 <style>
-
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:#f5f7fb;color:#172033;display:flex}#sidebar{position:fixed;left:0;top:0;width:340px;height:100vh;background:#101827;color:white;padding:22px;overflow:auto}main{margin-left:340px;padding:32px;width:calc(100% - 340px)}.brand{display:flex;gap:12px;align-items:center;margin-bottom:18px}.logo{width:52px;height:52px;border-radius:18px;background:linear-gradient(135deg,#60a5fa,#c084fc);display:grid;place-items:center;font-weight:900}.brand h1{font-size:22px;margin:0}.brand p{margin:4px 0 0;color:#cbd5e1;font-size:13px}input[type=search]{width:100%;padding:13px;border-radius:14px;border:1px solid #34435e;background:#172238;color:white;margin-bottom:16px}.sideGroup{border-top:1px solid #26344f;padding-top:14px;margin-top:14px}.sideGroup h4{color:#93a4bf;font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin:0 0 10px}.sideGroup a,nav a{display:block;color:#eaf2ff;text-decoration:none;background:#172238;padding:11px 12px;border-radius:12px;font-size:14px;margin:7px 0}.sideGroup a:hover,nav a:hover,nav a.active{background:#2d4167}.meter{background:#172238;border:1px solid #334155;border-radius:16px;padding:14px;margin:18px 0;color:#dbeafe;font-size:14px}.small{font-size:12px;color:#93a4bf;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}.bar{height:10px;background:#0b1220;border-radius:99px;overflow:hidden;margin-top:10px}.bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,#60a5fa,#c084fc)}button{border:0;border-radius:12px;background:#243b63;color:white;font-weight:800;padding:11px 14px;cursor:pointer}button:hover{filter:brightness(1.08)}.danger{background:#b42318}.hero{background:linear-gradient(135deg,#fff,#eef4ff);border:1px solid #e2e8f0;border-radius:28px;padding:32px;display:flex;justify-content:space-between;gap:22px;box-shadow:0 14px 35px rgba(15,23,42,.07)}.hero h2{font-size:40px;line-height:1.05;margin:14px 0 8px}.hero p{color:#536177;font-size:17px;max-width:760px}.pill{display:inline-block;background:#e7f0ff;color:#1d4ed8;border-radius:99px;padding:7px 12px;font-weight:900;font-size:13px}.panel{background:white;border:1px solid #e2e8f0;border-radius:22px;padding:18px;min-width:255px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:22px 0}.stats div{background:white;border:1px solid #e2e8f0;border-radius:20px;padding:18px;box-shadow:0 10px 25px rgba(15,23,42,.04)}.stats strong{font-size:30px;display:block}.stats span{color:#64748b}.toolCard{background:white;border:1px solid #e2e8f0;border-radius:26px;padding:22px;margin:24px 0;box-shadow:0 10px 30px rgba(15,23,42,.05)}.sectionTitle{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:15px}.sectionTitle h3{font-size:29px;margin:8px 0 4px}.sectionTitle p{margin:0;color:#64748b}.testActions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.question{background:#f8fafc;border:1px solid #e2e8f0;border-radius:18px;padding:16px;margin:12px 0}.question h4{margin:0 0 10px}.options{display:grid;gap:8px;margin-top:10px}.option{display:flex;gap:10px;align-items:flex-start;background:white;border:1px solid #e2e8f0;border-radius:12px;padding:10px;cursor:pointer}.option.correct{border-color:#22c55e;background:#ecfdf3}.option.wrong{border-color:#ef4444;background:#fff1f1}.textarea{width:100%;min-height:110px;border:1px solid #cbd5e1;border-radius:12px;padding:12px;font:inherit}.sampleAnswer{display:none;margin-top:10px;background:#eaf7ef;border:1px solid #a8e3bd;padding:12px;border-radius:12px}.scoreBox{background:#eff6ff;border:1px solid #bfdbfe;border-radius:18px;padding:16px;margin-top:15px}.hidden{display:none!important}.mindmap{overflow:auto;padding:12px}.mapRoot{text-align:center;background:#172238;color:white;border-radius:24px;padding:18px;font-size:25px;font-weight:900;margin:0 auto 24px;max-width:360px}.mapBranches{display:grid;grid-template-columns:repeat(5,minmax(210px,1fr));gap:14px;min-width:900px}.branch{background:#f8fafc;border:1px solid #e2e8f0;border-radius:20px;padding:15px;position:relative}.branch:before{content:"";position:absolute;top:-24px;left:50%;width:2px;height:24px;background:#94a3b8}.branch h4{margin:0 0 10px;color:#1d4ed8}.branch li{margin:7px 0}.formulaGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}.formula{background:#f8fafc;border:1px solid #e2e8f0;border-radius:18px;padding:16px}.formula code{display:block;background:#172238;color:white;border-radius:12px;padding:12px;margin:10px 0;font-size:15px}.tipsGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}.tipsGrid div{background:#f8fafc;border:1px solid #e2e8f0;border-radius:18px;padding:16px}.deck{margin:24px 0}.deckTitle{display:flex;align-items:end;justify-content:space-between;gap:12px}.deckTitle h3{font-size:26px;margin:0 0 8px}.deckTitle p{color:#64748b;margin:0 0 8px}.card{background:white;border:1px solid #e2e8f0;border-radius:24px;padding:16px;box-shadow:0 10px 30px rgba(15,23,42,.05)}details.slide{border:1px solid #e8eef7;border-radius:18px;background:#fcfdff;margin:12px 0;overflow:hidden}details.slide[open]{background:white}summary{list-style:none;cursor:pointer;padding:16px 18px;font-weight:900;display:flex;align-items:center;gap:12px}summary::-webkit-details-marker{display:none}.tick{appearance:none;width:22px;height:22px;border-radius:7px;border:2px solid #94a3b8;flex:0 0 auto}.tick:checked{background:#2563eb;border-color:#2563eb}.tick:checked:after{content:"✓";color:white;display:grid;place-items:center;font-weight:900}.slideBody{padding:0 20px 20px 54px}.slideText{white-space:pre-wrap;background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:15px;line-height:1.55}.empty{color:#64748b;font-style:italic}.studyBox{margin-top:12px;background:#fff8e6;border:1px solid #f4d58d;border-radius:14px;padding:12px;color:#674700}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}dialog{width:min(860px,92vw);border:0;border-radius:24px;padding:26px;box-shadow:0 25px 80px rgba(0,0,0,.3)}dialog::backdrop{background:rgba(15,23,42,.62)}#close{position:absolute;right:15px;top:12px;background:#e2e8f0;color:#172033;width:36px;height:36px;border-radius:50%;font-size:22px;padding:0}.flash{min-height:260px;background:linear-gradient(135deg,#172238,#2d4167);color:white;border-radius:24px;padding:28px;display:grid;place-items:center;text-align:center;cursor:pointer}.flash pre{text-align:left;white-space:pre-wrap;font-family:inherit;line-height:1.55}.muted{color:#64748b}@media(max-width:1100px){.stats{grid-template-columns:repeat(2,1fr)}.sectionTitle{align-items:flex-start;flex-direction:column}.mapBranches{grid-template-columns:repeat(5,210px)}}@media(max-width:900px){body{display:block}#sidebar{position:relative;width:100%;height:auto}main{margin-left:0;width:100%;padding:18px}.hero{flex-direction:column}.hero h2{font-size:31px}.stats{grid-template-columns:repeat(2,1fr)}}@media(max-width:520px){.stats{grid-template-columns:1fr}.testActions{justify-content:flex-start}.mapBranches{grid-template-columns:repeat(5,210px)}}@media print{#sidebar,.testActions,.actions,#close,.toolbar button{display:none!important}main{margin:0;width:100%;padding:0}.hero,.card,.toolCard{box-shadow:none}details.slide{break-inside:avoid}details.slide:not([open]) .slideBody{display:block}.slideBody{padding-left:20px}.question,.formula,.branch{break-inside:avoid}}
-
-.examFocus{border:2px solid #bfdbfe;background:linear-gradient(180deg,#ffffff,#f8fbff)}
-.examStructure{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0 20px}
-.examStructure div{background:#172238;color:white;border-radius:18px;padding:16px}
-.examStructure strong{display:block;font-size:22px}
-.examStructure span{display:block;color:#cbd5e1;margin-top:5px;font-size:13px}
-.focusLayout{display:grid;grid-template-columns:2fr 1fr;gap:16px;align-items:start}
-.focusCard{background:#f8fafc;border:1px solid #e2e8f0;border-radius:18px;padding:15px;margin:12px 0}
-.focusCard h5{margin:0 0 8px;font-size:18px;color:#1d4ed8}
-.focusCard .tag{display:inline-block;background:#e0f2fe;color:#075985;border-radius:999px;padding:4px 9px;font-size:12px;font-weight:800;margin-bottom:8px}
-.focusCard details{background:white;border:1px solid #e2e8f0;border-radius:14px;margin-top:10px}
-.focusCard summary{padding:11px 13px;font-size:14px}
-.focusCard .inside{padding:0 13px 13px}
-.priorityList{background:#fff8e6;border:1px solid #f4d58d;border-radius:18px;padding:18px 18px 18px 34px}
-.priorityList li{margin:10px 0}
-.subTool{margin-top:22px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:20px;padding:16px}
-.blankItem{display:grid;grid-template-columns:1fr minmax(140px,220px);gap:10px;align-items:center;background:white;border:1px solid #e2e8f0;border-radius:14px;padding:12px;margin:10px 0}
-.blankItem input{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:10px}
-.blankItem.correct{border-color:#22c55e;background:#ecfdf3}
-.blankItem.wrong{border-color:#ef4444;background:#fff1f1}
-.blankAnswer{display:none;color:#166534;font-weight:800;margin-top:6px}
-.blankItem.wrong .blankAnswer,.blankItem.correct .blankAnswer{display:block}
-@media(max-width:1000px){.examStructure{grid-template-columns:repeat(2,1fr)}.focusLayout{grid-template-columns:1fr}.blankItem{grid-template-columns:1fr}}
-@media(max-width:520px){.examStructure{grid-template-columns:1fr}}
-
-.originalSlides{border:2px solid #e9d5ff;background:linear-gradient(180deg,#ffffff,#fbf7ff)}
-.referenceNotice{display:flex;gap:10px;align-items:flex-start;background:#faf5ff;border:1px solid #e9d5ff;border-radius:16px;padding:14px;margin-bottom:16px;color:#4c1d95}
-.referenceNotice strong{white-space:nowrap}
-.referenceGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
-.refCard{background:white;border:1px solid #e2e8f0;border-radius:20px;padding:16px;box-shadow:0 8px 22px rgba(15,23,42,.05)}
-.refCard h4{margin:0 0 8px;color:#1d4ed8}
-.refCard p{color:#64748b;margin:0 0 14px}
-.refActions{display:flex;gap:8px;flex-wrap:wrap}
-.refActions a{display:inline-block;text-decoration:none;background:#243b63;color:white;font-weight:800;padding:10px 12px;border-radius:12px}
-.refActions a.secondary{background:#475569}
-.refActions a:hover{filter:brightness(1.08)}
-.embedHint{margin-top:12px;font-size:13px;color:#64748b}
-.slidePreview{margin-top:12px;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;background:#f8fafc}
-.slidePreview iframe{width:100%;height:420px;border:0;display:block}
-@media(max-width:600px){.referenceNotice{display:block}.slidePreview iframe{height:330px}}
-
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f6fb;color:#172033;line-height:1.55}
+.sidebar{position:fixed;left:0;top:0;width:270px;height:100vh;background:#111827;color:white;padding:20px;overflow:auto}
+.sidebar h1{font-size:22px;margin:0 0 4px}
+.sidebar p{color:#cbd5e1;margin:0 0 18px;font-size:13px}
+.sidebar input{width:100%;padding:10px;border-radius:8px;border:0;margin-bottom:14px}
+.sidebar a{display:block;color:white;text-decoration:none;padding:10px;border-radius:8px;margin:5px 0;background:#1f2937}
+.sidebar a:hover{background:#374151}
+main{margin-left:270px;padding:28px;max-width:1200px}
+.hero{background:white;border-radius:18px;padding:30px;margin-bottom:20px;box-shadow:0 8px 24px rgba(0,0,0,.06)}
+.hero h1{font-size:42px;line-height:1.05;margin:0 0 10px}
+.card{background:white;border-radius:16px;padding:24px;margin:20px 0;box-shadow:0 8px 24px rgba(0,0,0,.06);border:1px solid #e5e7eb}
+.highlight{border:2px solid #2563eb}
+details{border:1px solid #e5e7eb;border-radius:12px;margin:10px 0;background:#fafafa}
+summary{cursor:pointer;font-weight:bold;padding:14px}
+details ul, details p{padding:0 18px 16px 36px;margin-top:0}
+li{margin:6px 0}
+.exam-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:15px 0}
+.exam-grid div{background:#111827;color:white;border-radius:12px;padding:16px}
+.exam-grid b{display:block;font-size:20px}
+.exam-grid span{color:#d1d5db}
+.mind-root{background:#111827;color:white;text-align:center;padding:16px;border-radius:14px;font-size:24px;font-weight:bold;margin-bottom:15px}
+.mind{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.mind div{background:#eff6ff;border:1px solid #bfdbfe;border-radius:14px;padding:15px}
+table{width:100%;border-collapse:collapse}
+th,td{border:1px solid #d1d5db;padding:10px;text-align:left}
+th{background:#111827;color:white}
+.q,.blank{border:1px solid #e5e7eb;background:#fafafa;border-radius:12px;padding:14px;margin:10px 0}
+.q label{display:block;margin:7px 0}
+.blank input{padding:9px;border:1px solid #cbd5e1;border-radius:8px;min-width:220px}
+.correct{border-color:#22c55e!important;background:#ecfdf5!important}
+.wrong{border-color:#ef4444!important;background:#fef2f2!important}
+button{background:#2563eb;color:white;border:0;border-radius:8px;padding:10px 14px;font-weight:bold;cursor:pointer;margin:8px 0}
+.refs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.refs div{border:1px solid #e5e7eb;background:#fafafa;border-radius:12px;padding:14px}
+.refs a{display:inline-block;background:#111827;color:white;padding:9px 12px;border-radius:8px;text-decoration:none}
+pre{white-space:pre-wrap;background:#f8fafc;border-radius:10px;padding:14px;overflow:auto}
+.hidden{display:none}
+@media(max-width:800px){.sidebar{position:relative;width:100%;height:auto}main{margin-left:0;padding:16px}.hero h1{font-size:30px}.exam-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.exam-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<aside id="sidebar">
-  <div class="brand">
-    <div class="logo">CBS</div>
-    <div>
-      <h1>2332 Study</h1>
-      <p>Interactive pretest + slides</p>
-    </div>
-  </div>
-
-  <input id="search" placeholder="Search slides / notes..." type="search">
-
-  <div class="sideGroup">
-    <h4>Study Tools</h4>
-    <a href="#dashboard">Dashboard</a>
-    <a href="#examFocus">Sir Exam Tips Focus</a>
-    <a href="#originalSlides">Original Slides Reference</a>
-    <a href="#pretest">Pretest</a>
-    <a href="#mindmap">Mind Map</a>
-    <a href="#formulas">Formula Sheet</a>
-    <a href="#examTips">Exam Tips</a>
-    <a href="#slideText">Full Slide Text</a>
-  </div>
-
-  <div class="sideGroup">
-    <h4>Slide Decks</h4>
-    <nav id="deckNav"></nav>
-  </div>
-
-  <div class="meter">
-    <div class="small">Progress</div>
-    <div><span id="done">0</span>/<span id="total">0</span> slides completed</div>
-    <div class="bar"><span id="bar"></span></div>
-  </div>
-
-  <button id="print">Print / Save PDF</button>
+<aside class="sidebar">
+<h1>CBS 2332</h1>
+<p>Normal Study Website</p>
+<input id="search" placeholder="Search topics..." oninput="searchSite()">
+<nav><a href="#top">Dashboard</a>
+<a href="#exam">Exam Focus</a>
+<a href="#mindmap">Mind Map</a>
+<a href="#formulas">Formula Sheet</a>
+<a href="#practice">Practice</a>
+<a href="#chapter1">Chapter 1</a>
+<a href="#chapter2">Chapter 2</a>
+<a href="#chapter3a">Chapter 3 Initiation</a>
+<a href="#chapter3b">Chapter 3 Planning</a>
+<a href="#chapter4">Chapter 4</a>
+<a href="#original">Original Slides</a>
+<a href="#fullslides">Full Slide Text</a></nav>
 </aside>
 
-<main>
-  <section class="hero" id="dashboard">
-    <div>
-      <span class="pill">GitHub Fixed Version</span>
-      <h2>CBS 2332 Complete Interactive Study System</h2>
-      <p>This GitHub-fixed version has the CSS and JavaScript built directly into the page, so the layout and interactive tools work more reliably on GitHub Pages.</p>
-    </div>
-    <div class="panel">
-      <strong>Recommended study order</strong>
-      <ol>
-        <li>Take the pretest first</li>
-        <li>Review weak topics</li>
-        <li>Use the mind map</li>
-        <li>Read full slide text</li>
-        <li>Retake pretest</li>
-      </ol>
-    </div>
-  </section>
+<main id="top">
+<section class="hero">
+<h1>CBS 2332 Study Website</h1>
+<p>This is a simple normal website version with all main topics, exam focus, practice questions, mind map, formula sheet, original slide references and full extracted slide text. No external CSS or JavaScript is needed.</p>
+</section>
 
-  <section class="stats">
-    <div><strong id="deckCount">0</strong><span>Decks</span></div>
-    <div><strong id="slideCount">0</strong><span>Slides</span></div>
-    <div><strong id="questionCount">0</strong><span>Pretest Questions</span></div>
-    <div><strong id="completedPct">0%</strong><span>Completed</span></div>
-  </section>
+<section class="card highlight" id="exam"><h2>Final Exam Focus Based on Sir Tips</h2>
+<div class="exam-grid"><div><b>Final Exam</b><span>30%</span></div><div><b>Total</b><span>100 marks</span></div><div><b>Objective</b><span>30 Questions</span></div><div><b>Subjective</b><span>70 Marks</span></div></div>
+<h3>Part 2 Subjective Focus</h3>
+<details open><summary>Project Life Cycle</summary><p>Know Initiation, Planning, Execution, Monitoring &amp; Controlling, and Closure. Be able to explain the purpose of each phase.</p></details>
+<details open><summary>Project Management</summary><p>Know project definition, project attributes, project management processes, and benefits.</p></details>
+<details open><summary>Teamwork Development</summary><p>Know forming, storming, norming, performing, and adjourning, plus effective team attributes.</p></details>
+<details open><summary>Project Budgeting</summary><p>Know cost estimates, budgeting process, cost baseline, S-Curve, AC, committed cost, EV, CV and CPI.</p></details>
+<details open><summary>Project Planning</summary><p>Know SMART objectives, WBS, RACI, scheduling, network logic, forward/backward pass, critical path, slack and Gantt charts.</p></details>
+</section>
 
-
-  <section class="toolCard examFocus" id="examFocus">
-    <div class="sectionTitle">
-      <div>
-        <span class="pill">Sir's Final Exam Tips</span>
-        <h3>Final Exam Focus Section</h3>
-        <p>Based on the tips: Final Exam 30%, 100 marks. Objective = 30 questions covering Chapter 1 until Chapter 4. Subjective = 70 marks, with Fill in the Blanks and Part 2 focus topics.</p>
-      </div>
-      <div class="testActions">
-        <button id="checkExamObjective">Check Objective Drill</button>
-        <button id="checkFillBlanks">Check Fill Blanks</button>
-      </div>
-    </div>
-
-    <div class="examStructure">
-      <div><strong>Final Exam</strong><span>30% coursework weight</span></div>
-      <div><strong>100 Marks</strong><span>Total exam marks</span></div>
-      <div><strong>30 Objective Q</strong><span>Chapter 1 until Chapter 4</span></div>
-      <div><strong>70 Marks</strong><span>Subjective section</span></div>
-    </div>
-
-    <div class="focusLayout">
-      <div>
-        <h4>Part 2 Subjective Focus Topics</h4>
-        <div id="examFocusCards"></div>
-      </div>
-      <div>
-        <h4>How to prioritize revision</h4>
-        <ol class="priorityList">
-          <li><strong>Memorize definitions:</strong> project, project management, project life cycle, WBS, RACI, budgeting.</li>
-          <li><strong>Prepare short explanations:</strong> life cycle phases, team development stages, budgeting steps, planning tools.</li>
-          <li><strong>Practice fill in the blanks:</strong> key terms and formulas.</li>
-          <li><strong>Know formulas:</strong> EF, LS, Slack, EV, CV, CPI.</li>
-          <li><strong>Use examples:</strong> IT/cybersecurity project examples make subjective answers stronger.</li>
-        </ol>
-      </div>
-    </div>
-
-    <div class="subTool">
-      <h4>Objective Drill Based on Exam Format</h4>
-      <p class="muted">These questions focus on the exam structure and high-priority topics.</p>
-      <div id="examObjectiveDrill"></div>
-      <div id="examObjectiveScore" class="scoreBox hidden"></div>
-    </div>
-
-    <div class="subTool">
-      <h4>Part 1 Practice: Fill in the Blanks</h4>
-      <p class="muted">Your sir said Part 1 has 20 fill-in-the-blank questions. This drill gives extra practice, including formulas and key terms.</p>
-      <div id="fillBlankDrill"></div>
-      <div id="fillBlankScore" class="scoreBox hidden"></div>
-    </div>
-  </section>
+<section class="card" id="mindmap">
+<h2>Mind Map</h2>
+<div class="mind-root">Project Management</div>
+<div class="mind">
+  <div><h3>Concepts</h3><p>Project attributes, life cycle, processes, benefits</p></div>
+  <div><h3>Team</h3><p>Team stages, ethics, conflict, problem solving, time management</p></div>
+  <div><h3>Initiation</h3><p>Business case, project charter, stakeholders, stakeholder analysis</p></div>
+  <div><h3>Planning</h3><p>SMART, WBS, RACI, schedule, network, critical path, Gantt chart</p></div>
+  <div><h3>Cost</h3><p>Estimates, budgeting, S-Curve, AC, committed cost, EV, CV, CPI, cash flow</p></div>
+</div>
+</section>
 
 
+<section class="card" id="formulas">
+<h2>Formula Sheet</h2>
+<table>
+<tr><th>Formula</th><th>Use</th></tr>
+<tr><td>(O + 4M + P) ÷ 6</td><td>Three-point duration estimate</td></tr>
+<tr><td>EF = ES + Duration</td><td>Forward pass</td></tr>
+<tr><td>LS = LF - Duration</td><td>Backward pass</td></tr>
+<tr><td>Slack = LS - ES</td><td>Find activity float/slack</td></tr>
+<tr><td>EV = % Complete × BAC</td><td>Earned Value</td></tr>
+<tr><td>CV = EV - AC</td><td>Cost Variance; negative means over budget</td></tr>
+<tr><td>CPI = EV ÷ AC</td><td>Cost efficiency; CPI &lt; 1.0 means cost overrun</td></tr>
+</table>
+</section>
 
-  <section class="toolCard originalSlides" id="originalSlides">
-    <div class="sectionTitle">
-      <div>
-        <span class="pill">Original References</span>
-        <h3>Original Slides Reference</h3>
-        <p>Use this section when you want to check the lecturer's original PowerPoint slides instead of the extracted notes.</p>
-      </div>
-    </div>
+<section class="card" id="practice"><h2>Practice Questions</h2><h3>Objective MCQ Practice</h3>
+<div class="q" data-answer="A temporary endeavor creating a unique result"><p><b>1. Which best defines a project?</b></p>
+<label><input type="radio" name="mcq1" value="A routine daily process"> A routine daily process</label>
+<label><input type="radio" name="mcq1" value="A temporary endeavor creating a unique result"> A temporary endeavor creating a unique result</label>
+<label><input type="radio" name="mcq1" value="A permanent department"> A permanent department</label>
+<label><input type="radio" name="mcq1" value="A repeated operation"> A repeated operation</label>
+<p class="answer"></p></div>
+<div class="q" data-answer="Initiation"><p><b>2. Which phase defines objectives, scope and feasibility?</b></p>
+<label><input type="radio" name="mcq2" value="Initiation"> Initiation</label>
+<label><input type="radio" name="mcq2" value="Execution"> Execution</label>
+<label><input type="radio" name="mcq2" value="Closure"> Closure</label>
+<label><input type="radio" name="mcq2" value="Adjourning"> Adjourning</label>
+<p class="answer"></p></div>
+<div class="q" data-answer="Storming"><p><b>3. Which team stage involves conflict?</b></p>
+<label><input type="radio" name="mcq3" value="Forming"> Forming</label>
+<label><input type="radio" name="mcq3" value="Storming"> Storming</label>
+<label><input type="radio" name="mcq3" value="Norming"> Norming</label>
+<label><input type="radio" name="mcq3" value="Performing"> Performing</label>
+<p class="answer"></p></div>
+<div class="q" data-answer="Breaks scope into manageable work"><p><b>4. What does WBS do?</b></p>
+<label><input type="radio" name="mcq4" value="Breaks scope into manageable work"> Breaks scope into manageable work</label>
+<label><input type="radio" name="mcq4" value="Calculates salary"> Calculates salary</label>
+<label><input type="radio" name="mcq4" value="Deletes risk"> Deletes risk</label>
+<label><input type="radio" name="mcq4" value="Approves invoices"> Approves invoices</label>
+<p class="answer"></p></div>
+<div class="q" data-answer="Accountable"><p><b>5. In RACI, who owns the result?</b></p>
+<label><input type="radio" name="mcq5" value="Responsible"> Responsible</label>
+<label><input type="radio" name="mcq5" value="Accountable"> Accountable</label>
+<label><input type="radio" name="mcq5" value="Consulted"> Consulted</label>
+<label><input type="radio" name="mcq5" value="Informed"> Informed</label>
+<p class="answer"></p></div>
+<div class="q" data-answer="EF = ES + Duration"><p><b>6. What is EF formula?</b></p>
+<label><input type="radio" name="mcq6" value="EF = ES + Duration"> EF = ES + Duration</label>
+<label><input type="radio" name="mcq6" value="EF = LS - Duration"> EF = LS - Duration</label>
+<label><input type="radio" name="mcq6" value="EF = EV - AC"> EF = EV - AC</label>
+<label><input type="radio" name="mcq6" value="EF = CPI × BAC"> EF = CPI × BAC</label>
+<p class="answer"></p></div>
+<div class="q" data-answer="Gantt Chart"><p><b>7. Which chart shows project activities over time?</b></p>
+<label><input type="radio" name="mcq7" value="Gantt Chart"> Gantt Chart</label>
+<label><input type="radio" name="mcq7" value="Pie Chart"> Pie Chart</label>
+<label><input type="radio" name="mcq7" value="Scatter Plot"> Scatter Plot</label>
+<label><input type="radio" name="mcq7" value="Stakeholder Map"> Stakeholder Map</label>
+<p class="answer"></p></div>
+<div class="q" data-answer="Cost actually incurred"><p><b>8. What is Actual Cost?</b></p>
+<label><input type="radio" name="mcq8" value="Value of completed work"> Value of completed work</label>
+<label><input type="radio" name="mcq8" value="Cost actually incurred"> Cost actually incurred</label>
+<label><input type="radio" name="mcq8" value="Total planned scope"> Total planned scope</label>
+<label><input type="radio" name="mcq8" value="Stakeholder power"> Stakeholder power</label>
+<p class="answer"></p></div>
+<div class="q" data-answer="EV = % Complete × BAC"><p><b>9. EV formula is:</b></p>
+<label><input type="radio" name="mcq9" value="EV = % Complete × BAC"> EV = % Complete × BAC</label>
+<label><input type="radio" name="mcq9" value="EV = AC - BAC"> EV = AC - BAC</label>
+<label><input type="radio" name="mcq9" value="EV = LS - ES"> EV = LS - ES</label>
+<label><input type="radio" name="mcq9" value="EV = LF + Duration"> EV = LF + Duration</label>
+<p class="answer"></p></div>
+<div class="q" data-answer="Cost overrun"><p><b>10. CPI &lt; 1.0 means:</b></p>
+<label><input type="radio" name="mcq10" value="Under budget"> Under budget</label>
+<label><input type="radio" name="mcq10" value="Cost overrun"> Cost overrun</label>
+<label><input type="radio" name="mcq10" value="No risk"> No risk</label>
+<label><input type="radio" name="mcq10" value="Project closed"> Project closed</label>
+<p class="answer"></p></div>
+<button onclick="checkMCQ()">Check MCQ</button><p id="mcqScore"></p>
+<h3>Fill in the Blanks Practice</h3>
+<div class="blank" data-answer="temporary"><p>1. A project is a __________ endeavor undertaken to create a unique product, service, or result.</p><input placeholder="Your answer"><span></span></div>
+<div class="blank" data-answer="end"><p>2. Every project has a definite beginning and __________.</p><input placeholder="Your answer"><span></span></div>
+<div class="blank" data-answer="initiation"><p>3. The first phase of the project life cycle is __________.</p><input placeholder="Your answer"><span></span></div>
+<div class="blank" data-answer="planning"><p>4. The phase that develops a detailed roadmap for execution is __________.</p><input placeholder="Your answer"><span></span></div>
+<div class="blank" data-answer="corrective"><p>5. Monitoring and controlling takes __________ action when deviations occur.</p><input placeholder="Your answer"><span></span></div>
+<div class="blank" data-answer="closure"><p>6. The final phase of the project life cycle is __________.</p><input placeholder="Your answer"><span></span></div>
+<div class="blank" data-answer="adjourning"><p>7. The five team stages are forming, storming, norming, performing and __________.</p><input placeholder="Your answer"><span></span></div>
+<div class="blank" data-answer="storming"><p>8. During __________, conflict may occur because of different opinions.</p><input placeholder="Your answer"><span></span></div>
+<div class="blank" data-answer="responsibility"><p>9. Ethical behavior promotes honesty, integrity, fairness and __________.</p><input placeholder="Your answer"><span></span></div>
+<div class="blank" data-answer="charter"><p>10. A project __________ officially authorizes the project.</p><input placeholder="Your answer"><span></span></div>
+<div class="blank" data-answer="business"><p>11. A __________ case justifies feasibility, benefits and costs.</p><input placeholder="Your answer"><span></span></div>
+<div class="blank" data-answer="interest"><p>12. The Power/Interest Grid maps stakeholders by power and __________.</p><input placeholder="Your answer"><span></span></div>
+<div class="blank" data-answer="bound"><p>13. SMART objectives are specific, measurable, achievable and time-__________.</p><input placeholder="Your answer"><span></span></div>
+<div class="blank" data-answer="packages"><p>14. WBS breaks project scope into work __________.</p><input placeholder="Your answer"><span></span></div>
+<div class="blank" data-answer="responsible"><p>15. In RACI, R means __________.</p><input placeholder="Your answer"><span></span></div>
+<div class="blank" data-answer="accountable"><p>16. In RACI, A means __________.</p><input placeholder="Your answer"><span></span></div>
+<div class="blank" data-answer="duration"><p>17. EF = ES + __________.</p><input placeholder="Your answer"><span></span></div>
+<div class="blank" data-answer="duration"><p>18. LS = LF - __________.</p><input placeholder="Your answer"><span></span></div>
+<div class="blank" data-answer="es"><p>19. Slack = LS - __________.</p><input placeholder="Your answer"><span></span></div>
+<div class="blank" data-answer="zero"><p>20. Critical path activities have __________ slack.</p><input placeholder="Your answer"><span></span></div>
+<button onclick="checkBlanks()">Check Fill in the Blanks</button><p id="blankScore"></p></section>
+<section class="card" id="chapter1"><h2>Chapter 1: Project Management Concepts</h2>
+<details open><summary>Attributes of a Project</summary><ul>
+<li>A project is a temporary endeavor undertaken to create a unique product, service, or result.</li>
+<li>Temporary means every project has a definite beginning and end.</li>
+<li>Unique purpose means the project is not a routine operation and produces a specific deliverable.</li>
+<li>Progressive elaboration means projects are developed in steps and continue by increments.</li>
+<li>Projects consume resources such as people, money, hardware and software.</li>
+<li>A project usually has a primary sponsor or champion who provides direction and funding.</li>
+<li>Projects involve uncertainty because every project is unique and carries risks or unknowns.</li>
+</ul></details>
+<details open><summary>Project Life Cycle</summary><ul>
+<li>The project life cycle provides a framework for managing a project from initiation to closure.</li>
+<li>Initiation defines the project objectives, scope and feasibility.</li>
+<li>Planning develops a detailed plan for how the project will be executed.</li>
+<li>Execution carries out the tasks defined in the project plan.</li>
+<li>Monitoring and Controlling tracks progress, identifies deviations and takes corrective action.</li>
+<li>Closure formalizes acceptance and hands over the final product.</li>
+</ul></details>
+<details open><summary>Project Management Process</summary><ul>
+<li>Starting / Initiation: define the project at a high level and obtain authorization.</li>
+<li>Organizing and Preparing / Planning: develop the roadmap including scope, schedule and budget.</li>
+<li>Carrying out the Work / Execution: the phase where the main project work is completed.</li>
+<li>Monitoring and Controlling: track performance, identify variances, manage risks and report progress.</li>
+<li>Closing: formalize acceptance and hand over the final product.</li>
+</ul></details>
+<details open><summary>Benefits of Project Management</summary><ul>
+<li>Improves planning and organization.</li>
+<li>Helps control time, cost, scope, quality and risk.</li>
+<li>Improves communication with stakeholders.</li>
+<li>Helps detect problems early through monitoring and controlling.</li>
+<li>Supports successful delivery of project objectives.</li>
+</ul></details>
+</section>
+<section class="card" id="chapter2"><h2>Chapter 2: The Project Team</h2>
+<details open><summary>What is a Project Team?</summary><ul>
+<li>A project team is a group of individuals working on a specific project with a similar objective.</li>
+<li>Each team member is responsible for assigned tasks and contributes to project success.</li>
+<li>Organizations create project teams to improve processes, solve problems and achieve goals.</li>
+</ul></details>
+<details open><summary>Team Development Stages</summary><ul>
+<li>Forming: team members are uncertain and get acquainted with the project goals.</li>
+<li>Storming: differences in opinions and working styles appear, causing possible conflict.</li>
+<li>Norming: the team establishes norms and processes and understands each member&#x27;s strengths and weaknesses.</li>
+<li>Performing: the team operates at peak performance with collaboration and focus.</li>
+<li>Adjourning: the team dissolves after project completion.</li>
+</ul></details>
+<details open><summary>Effective Project Team Attributes</summary><ul>
+<li>Clear goals and objectives.</li>
+<li>Open communication.</li>
+<li>Mutual trust and respect.</li>
+<li>Collaboration and cooperation.</li>
+<li>Commitment and accountability.</li>
+<li>Effective leadership.</li>
+<li>Constructive conflict resolution.</li>
+</ul></details>
+<details open><summary>Common Team Problems</summary><ul>
+<li>Poor communication can cause misunderstandings, errors and delays.</li>
+<li>Lack of clear goals creates confusion and frustration.</li>
+<li>Interpersonal conflicts happen because of different perspectives and constraints.</li>
+<li>Insufficient resources can cause team dysfunction.</li>
+</ul></details>
+<details open><summary>Ethical Behavior</summary><ul>
+<li>Ethical behavior is important for trust and credibility in project management.</li>
+<li>Project managers and team members should promote honesty, integrity, fairness and responsibility.</li>
+</ul></details>
+<details open><summary>Conflict on Project</summary><ul>
+<li>Conflict is inevitable in project environments.</li>
+<li>Conflict can be managed constructively if handled openly and fairly.</li>
+<li>Good conflict management can strengthen teamwork and decision-making.</li>
+</ul></details>
+<details open><summary>Problem Solving and Brainstorming</summary><ul>
+<li>Problem solving helps project teams identify root causes and choose effective solutions.</li>
+<li>Brainstorming generates many ideas before evaluating them.</li>
+<li>Rules include defer judgment, encourage wild ideas, quantity over quality and build on others&#x27; ideas.</li>
+</ul></details>
+<details open><summary>Time Management</summary><ul>
+<li>Time management involves planning, scheduling, monitoring and controlling project tasks.</li>
+<li>It helps the project finish on time, within budget and according to project goals.</li>
+<li>Key aspects include planning, scheduling, resource allocation, monitoring, control and task management.</li>
+</ul></details>
+</section>
+<section class="card" id="chapter3a"><h2>Chapter 3: Project Initiation &amp; Stakeholder</h2>
+<details open><summary>Project Initiation</summary><ul>
+<li>Project initiation is the first phase of project management.</li>
+<li>It defines the project&#x27;s purpose, scope and feasibility.</li>
+<li>It secures approval from key stakeholders.</li>
+<li>Core activities include defining goals, scope and constraints, identifying stakeholders, appointing the project manager and securing funding.</li>
+<li>The purpose is to confirm business need, define high-level scope, identify stakeholders and decide whether to proceed, delay or stop.</li>
+</ul></details>
+<details open><summary>Key Outputs from Project Initiation</summary><ul>
+<li>Business case: justifies the project&#x27;s feasibility, benefits and costs.</li>
+<li>Project charter: outlines the project&#x27;s purpose, high-level scope and goals to gain approval.</li>
+<li>Initial stakeholder list: documents key stakeholders, their expectations and roles.</li>
+</ul></details>
+<details open><summary>Business Case</summary><ul>
+<li>A business case explains the problem statement, objectives and benefits.</li>
+<li>Problem statement explains what problem is being solved and what happens if nothing is done.</li>
+<li>Objectives explain what the project aims to achieve and should be clear and measurable.</li>
+<li>Benefits may include business value, cost reduction, revenue improvement, risk reduction or compliance improvement.</li>
+</ul></details>
+<details open><summary>Stakeholders</summary><ul>
+<li>A stakeholder is any individual, group or organization that can affect or be affected by the project.</li>
+<li>Stakeholders may define requirements, provide feedback and validate the solution.</li>
+<li>Internal stakeholders include management, project team, IT/security team and end users.</li>
+<li>External stakeholders include vendors, customers, suppliers, regulators and auditors.</li>
+</ul></details>
+<details open><summary>Stakeholder Analysis</summary><ul>
+<li>Stakeholder analysis identifies and assesses stakeholder influence, interest and impact.</li>
+<li>It helps create communication and engagement strategies.</li>
+<li>Power/Interest Grid categories are: manage closely, keep satisfied, keep informed and monitor.</li>
+<li>High power/high interest stakeholders should be managed closely.</li>
+<li>High power/low interest stakeholders should be kept satisfied.</li>
+<li>Low power/high interest stakeholders should be kept informed.</li>
+<li>Low power/low interest stakeholders should be monitored with minimum effort.</li>
+</ul></details>
+<details open><summary>Project Charter</summary><ul>
+<li>A project charter formally authorizes a project&#x27;s existence.</li>
+<li>It defines the project purpose, scope, objectives and key participants.</li>
+<li>It gives the project manager authority to use resources.</li>
+<li>It helps align stakeholders and prevent scope creep.</li>
+<li>Components include project title, purpose, objectives, success criteria, scope, deliverables, stakeholders, roles, timeline, budget, risks and assumptions.</li>
+</ul></details>
+</section>
+<section class="card" id="chapter3b"><h2>Chapter 3: Project Planning &amp; Controlling</h2>
+<details open><summary>SMART Objectives</summary><ul>
+<li>Objectives define what needs to be achieved.</li>
+<li>Specific: clear and unambiguous.</li>
+<li>Measurable: progress can be quantified.</li>
+<li>Achievable: realistic within resources.</li>
+<li>Time-bound: has defined deadlines.</li>
+</ul></details>
+<details open><summary>Work Breakdown Structure (WBS)</summary><ul>
+<li>WBS is a hierarchical decomposition of the total scope of work.</li>
+<li>The 100% rule means the WBS includes 100% of the work defined by the project scope.</li>
+<li>Root is the final project deliverable.</li>
+<li>Phases are major logical groupings.</li>
+<li>Work packages are the lowest-level manageable activities.</li>
+</ul></details>
+<details open><summary>RACI Matrix</summary><ul>
+<li>RACI clarifies roles and responsibilities for each task.</li>
+<li>R means Responsible: the doer.</li>
+<li>A means Accountable: the owner of the result.</li>
+<li>C means Consulted: two-way communication.</li>
+<li>I means Informed: one-way communication.</li>
+</ul></details>
+<details open><summary>Scheduling and Duration Estimates</summary><ul>
+<li>Scheduling determines the start and finish dates for project activities.</li>
+<li>Steps include identifying activities, sequencing activities, estimating resources and estimating durations.</li>
+<li>Expert judgment is based on historical experience.</li>
+<li>Analogous estimation compares with a similar past project.</li>
+<li>Parametric estimation uses statistical relationships.</li>
+<li>Three-point estimation formula is (Optimistic + 4 × Most Likely + Pessimistic) ÷ 6.</li>
+</ul></details>
+<details open><summary>Network Logic</summary><ul>
+<li>A network diagram shows logical relationships and dependencies between activities.</li>
+<li>Nodes represent activities.</li>
+<li>Arrows show dependencies.</li>
+<li>A path is a sequence of connected activities.</li>
+<li>Network logic helps identify the critical path and project duration.</li>
+</ul></details>
+<details open><summary>Forward Pass and Backward Pass</summary><ul>
+<li>Forward pass determines earliest start and earliest finish times.</li>
+<li>ES means Early Start.</li>
+<li>EF means Early Finish.</li>
+<li>EF = ES + Duration.</li>
+<li>When activities merge, the successor ES is the maximum EF of all predecessors.</li>
+<li>Backward pass determines latest start and latest finish times without delaying the project.</li>
+<li>LF means Late Finish.</li>
+<li>LS means Late Start.</li>
+<li>LS = LF - Duration.</li>
+<li>When tracing backward, the predecessor LF is the minimum LS of all successors.</li>
+</ul></details>
+<details open><summary>Critical Path, Slack and Gantt Chart</summary><ul>
+<li>Slack is the amount of time an activity can be delayed without delaying the project end date.</li>
+<li>Slack = LS - ES.</li>
+<li>Critical path is the longest path through the network diagram.</li>
+<li>Critical path determines the shortest time to complete the project.</li>
+<li>Activities on the critical path have zero slack.</li>
+<li>A Gantt chart is a horizontal bar chart that illustrates the project schedule.</li>
+</ul></details>
+</section>
+<section class="card" id="chapter4"><h2>Chapter 4: Cost Planning &amp; Performance</h2>
+<details open><summary>Project Cost Estimates</summary><ul>
+<li>Accurate cost estimates are the foundation of project success.</li>
+<li>Cost estimates determine feasibility and secure funding.</li>
+<li>Direct costs include salaries, software licenses and servers.</li>
+<li>Indirect costs include overhead, office rent and utilities.</li>
+<li>Fixed cost example: one-time hardware purchase.</li>
+<li>Variable cost example: monthly cloud usage fees.</li>
+</ul></details>
+<details open><summary>Project Budgeting</summary><ul>
+<li>Project budgeting aggregates estimated costs to establish an authorized cost baseline.</li>
+<li>Allocate total estimate to individual WBS work packages.</li>
+<li>Aggregate work package costs to determine total budgeted cost.</li>
+<li>Add contingency reserves to form the final cost baseline.</li>
+</ul></details>
+<details open><summary>Cumulative Budgeted Cost / S-Curve</summary><ul>
+<li>Project costs are not spent linearly.</li>
+<li>Budgeting involves a time-phased view of costs.</li>
+<li>Cumulative costs over time create an S-Curve.</li>
+<li>Start: low spending during planning.</li>
+<li>Middle: peak spending during execution/development.</li>
+<li>End: spending tapers off during closure.</li>
+</ul></details>
+<details open><summary>Actual Cost and Committed Cost</summary><ul>
+<li>Actual Cost (AC) is the total cost actually incurred and recorded for work performed.</li>
+<li>Examples of AC include salaries paid, invoices settled and software subscriptions paid.</li>
+<li>Committed cost means funds obligated but not yet paid.</li>
+<li>Examples include signed purchase orders and vendor contracts.</li>
+<li>Committed cost helps prevent accidental overspending.</li>
+</ul></details>
+<details open><summary>Earned Value and Cost Performance</summary><ul>
+<li>Earned Value (EV) is the estimated value of work actually completed.</li>
+<li>EV = % Complete × Budget at Completion (BAC).</li>
+<li>Spending 50% of money does not mean the project is 50% complete.</li>
+<li>Cost Variance (CV) is the budget deficit or surplus at a point in time.</li>
+<li>Negative CV means over budget.</li>
+<li>Cost Performance Index (CPI) measures cost efficiency.</li>
+<li>CPI less than 1.0 means cost overrun.</li>
+</ul></details>
+<details open><summary>Managing Cash Flow</summary><ul>
+<li>Cost performance is about budget.</li>
+<li>Cash flow is about having money in the bank to pay bills.</li>
+<li>Inflow includes milestone payments from clients.</li>
+<li>Outflow includes salaries and hardware purchases.</li>
+<li>IT projects may have large upfront outflows before inflows arrive.</li>
+</ul></details>
+</section>
+<section class="card" id="original"><h2>Original Slides Reference</h2><p>Use these to check the lecturer slides directly.</p><div class="refs">
+<div><h3>CBS2332_CHAPTER_2-_THE_PROJECT_TEAM</h3><a href="slide_pdfs/CBS2332_CHAPTER_2-_THE_PROJECT_TEAM.pdf" target="_blank">View PDF</a></div>
+<div><h3>CBS_2332_CHAPTER_1_-_Project_Management_Concepts</h3><a href="slide_pdfs/CBS_2332_CHAPTER_1_-_Project_Management_Concepts.pdf" target="_blank">View PDF</a></div>
+<div><h3>CBS_2332_CHAPTER_3_-_Planning_and_Controlling</h3><a href="slide_pdfs/CBS_2332_CHAPTER_3_-_Planning_and_Controlling.pdf" target="_blank">View PDF</a></div>
+<div><h3>CBS_2332_CHAPTER_4-_Cost_Planning</h3><a href="slide_pdfs/CBS_2332_CHAPTER_4-_Cost_Planning.pdf" target="_blank">View PDF</a></div>
+<div><h3>_MR_ZAKI_CBS_2332_CHAPTER_3_-_Project_Initiation_Stakeholder</h3><a href="slide_pdfs/_MR_ZAKI_CBS_2332_CHAPTER_3_-_Project_Initiation_Stakeholder.pdf" target="_blank">View PDF</a></div>
+<div><h3>CBS2332_CHAPTER_2-_THE_PROJECT_TEAM</h3><a href="original_slides/CBS2332_CHAPTER_2-_THE_PROJECT_TEAM.pptx" download>Download PPTX</a></div>
+<div><h3>CBS_2332_CHAPTER_1_-_Project_Management_Concepts</h3><a href="original_slides/CBS_2332_CHAPTER_1_-_Project_Management_Concepts.pptx" download>Download PPTX</a></div>
+<div><h3>CBS_2332_CHAPTER_3_-_Planning_and_Controlling</h3><a href="original_slides/CBS_2332_CHAPTER_3_-_Planning_and_Controlling.pptx" download>Download PPTX</a></div>
+<div><h3>CBS_2332_CHAPTER_4-_Cost_Planning</h3><a href="original_slides/CBS_2332_CHAPTER_4-_Cost_Planning.pptx" download>Download PPTX</a></div>
+<div><h3>_MR_ZAKI_CBS_2332_CHAPTER_3_-_Project_Initiation_Stakeholder</h3><a href="original_slides/_MR_ZAKI_CBS_2332_CHAPTER_3_-_Project_Initiation_Stakeholder.pptx" download>Download PPTX</a></div>
+</div></section>
+<section class="card" id="fullslides"><h2>Full Extracted Slide Text</h2>
+<h3>CBS 2332 CHAPTER 1 - Project_Management_Concepts</h3>
+<details><summary>Slide 1: Topic 1</summary><pre>Topic 1
+Project Management Concepts</pre></details>
+<details><summary>Slide 2: Blank / visual slide</summary><pre>No extractable text found.</pre></details>
+<details><summary>Slide 3: Project Management in Cyber Security</summary><pre>Project Management in Cyber Security</pre></details>
+<details><summary>Slide 4: Security Concepts</summary><pre>Security Concepts</pre></details>
+<details><summary>Slide 5: Blank / visual slide</summary><pre>No extractable text found.</pre></details>
+<details><summary>Slide 6: Attributes of a Project</summary><pre>Attributes of a Project</pre></details>
+<details><summary>Slide 7: 1.1 Attribute of a Project</summary><pre>1.1 Attribute of a Project
 
-    <div class="referenceNotice">
-      <strong>How to use:</strong>
-      <span>Open the PDF version to view slides in browser/phone. Download the PPTX version if you want the original PowerPoint file.</span>
-    </div>
+Core Definition: A project is a temporary endeavor undertaken to create a unique product, service, or result.
+Temporary: Every project has a definite beginning and end.
+Unique Purpose: It is not a routine operation; it results in a specific &quot;deliverable.&quot;
+Progressive Elaboration: Projects are developed in steps and continue by increments.
+Resource Consuming: Requires various resources (human, financial, and hardware/software).
+Primary Sponsor: Usually has a main stakeholder or &quot;Champion&quot; who provides direction and funding.
+Uncertainty: Because every project is unique, it carries a degree of risk and unknowns.</pre></details>
+<details><summary>Slide 8: 1.2 Project Life Cycle</summary><pre>1.2 Project Life Cycle
 
-    <div id="referenceSlideCards" class="referenceGrid"></div>
-  </section>
+The project life cycle provides a framework for managing a project from its initiation to its closure. It defines the stages a project typically goes through and the activities performed in each stage. Different industries and organizations may use slightly different life cycle models, but the core principles remain the same. A common project life cycle includes the following phases:</pre></details>
+<details><summary>Slide 9: 1.2 Project Life Cycle</summary><pre>1.2 Project Life Cycle
+
+Initiation: This is the starting phase of the project. It involves defining the project&#x27;s objectives, scope, and feasibility.
+Planning: This phase involves developing a detailed plan for how the project will be executed.
+Execution: This phase involves carrying out the tasks defined in the project plan.
+ Monitoring and Controlling: This phase involves tracking the project&#x27;s progress, identifying any deviations from the plan, and taking corrective action. This phase runs concurrently with the execution phase.</pre></details>
+<details><summary>Slide 10: 1.3 The Project Management Process</summary><pre>1.3 The Project Management Process
+
+Starting the Project (Initiation): Defining the project at a high level and obtaining authorization.
+Organizing and Preparing (Planning): Developing the roadmap (Scope, Schedule, Budget).
+Carrying out the Work (Execution): The phase where the &quot;heavy lifting&quot; happens and the product is built.
+Monitoring and Controlling: These processes involve tracking the project&#x27;s progress, identifying any deviations from the plan, and taking corrective action. They include monitoring project performance, identifying variances, taking corrective action, managing risks, and reporting progress.
+Closing the Project (Closure): Formalizing acceptance and handing over the final product.</pre></details>
+<details><summary>Slide 11: Blank / visual slide</summary><pre>No extractable text found.</pre></details>
+<details><summary>Slide 12: 1.4 Benefits of Project Management</summary><pre>1.4 Benefits of Project Management</pre></details>
+<details><summary>Slide 13: Blank / visual slide</summary><pre>No extractable text found.</pre></details>
+<h3>CBS2332 CHAPTER 2- THE PROJECT TEAM</h3>
+<details><summary>Slide 1: Blank / visual slide</summary><pre>No extractable text found.</pre></details>
+<details><summary>Slide 2: Most organizations&#x27; leadership or management teams set goals to support normal business operations. </summary><pre>Most organizations&#x27; leadership or management teams set goals to support normal business operations. 
+A company may also find it necessary to create a project team tasked with improving a process or finding a solution to a problem.
+ Businesses can meet their targets and achieve success by establishing an effective project team.
+A group of individuals working on a specific project with a similar objective is the simple answer to &#x27;What is a project team?’. 
+Each project team member is responsible for their assigned tasks and their contribution to the project&#x27;s success.
+
+What is the Project Team?</pre></details>
+<details><summary>Slide 3: 2.1 Project Team Development and Effectiveness</summary><pre>2.1 Project Team Development and Effectiveness
+
+Project teams, like any group, evolve through distinct stages. Understanding these stages allows project managers to anticipate challenges and facilitate team growth:
+
+Forming: 
+This initial stage is characterized by uncertainty and anxiety as team members get acquainted and learn about the project goals. 
+Storming: 
+As team members become more comfortable, differences in opinions and working styles emerge, leading to potential conflict. 
+Norming: 
+The team begins to establish norms and processes for working together. Members start to understand and appreciate each other&#x27;s strengths and weaknesses.
+Performing: 
+The team operates at its peak performance. Members are highly collaborative, autonomous, and focused on achieving project goals. 
+Adjourning: 
+This final stage involves the dissolution of the team after the project is completed.</pre></details>
+<details><summary>Slide 4: 2.1 Project Team Development and Effectiveness</summary><pre>2.1 Project Team Development and Effectiveness
+
+Clear Goals and Objectives: Everyone understands the project&#x27;s purpose and their individual roles in achieving it.
+Open Communication: Team members feel comfortable sharing ideas, concerns, and feedback.
+Mutual Trust and Respect: Members trust each other&#x27;s abilities and respect their opinions.
+Collaboration and Cooperation: Team members work together effectively to achieve common goals.
+Commitment and Accountability: Members are committed to the project&#x27;s success and take responsibility for their actions.
+Effective Leadership: The project manager provides clear direction, support, and motivation.
+Constructive Conflict Resolution: Disagreements are addressed openly and resolved in a way that strengthens the team.
+
+An effective project team is characterized by several key attributes:</pre></details>
+<details><summary>Slide 5: 2.1 Project Team Development and Effectiveness</summary><pre>2.1 Project Team Development and Effectiveness
+
+Poor Communication: 
+Ineffective communication can result in misunderstandings, errors, and delays.
+
+Lack of Clear Goals and Objectives: Ambiguity about the project&#x27;s purpose can lead to confusion and frustration.
+
+Interpersonal conflicts:
+An inevitable part of the collaboration process due to the diverse perspectives and constraints inherent in any project.
+
+Insufficient Resources:
+One of the most frequent triggers for team dysfunction. When the demand for time, money, or people exceeds the supply, it shifts a team from a collaborative &quot;Performing&quot;</pre></details>
+<details><summary>Slide 6: 2.1 Project Team Development and Effectiveness</summary><pre>2.1 Project Team Development and Effectiveness
+
+To be an effective team member, consider the following:</pre></details>
+<details><summary>Slide 7: 2.2 Ethical Behavior</summary><pre>2.2 Ethical Behavior
+
+Ethical behavior is crucial for maintaining trust and credibility in project management. 
+Project managers and team members should adhere to a code of ethics that promotes honesty, integrity, fairness, and responsibility.</pre></details>
+<details><summary>Slide 8: 2.3 Conflict on Project</summary><pre>2.3 Conflict on Project
+
+Conflict is inevitable in project environments, but it can be managed constructively.</pre></details>
+<details><summary>Slide 9: 2.4 Problem Solving</summary><pre>2.4 Problem Solving
+
+Problem-solving is a critical skill for project teams. Projects inevitably encounter challenges and obstacles that require creative and effective solutions. A structured approach to problem-solving can help teams identify the root cause of problems, generate potential solutions, and implement the most effective course of action.</pre></details>
+<details><summary>Slide 10: 2.4 Problem Solving</summary><pre>2.4 Problem Solving
+
+A structured approach to problem-solving can help teams systematically address challenges and find effective solutions. One such approach involves the following nine steps:</pre></details>
+<details><summary>Slide 11: 2.4 Problem Solving</summary><pre>2.4 Problem Solving
+
+A collaborative process to generate many ideas for solving problems or exploring opportunities, emphasizing creativity, deferring judgment, building on others&#x27; ideas, and focusing on quantity to find innovative solutions.
+To be effective, every project team member must follow four foundational rules:
+Defer Judgment: No one is allowed to criticize or evaluate ideas during the session. This encourages people to share without fear of looking &quot;wrong.“
+Encourage Wild Ideas: In a project context, sometimes the most &quot;impossible&quot; idea sparks a realistic, innovative solution that no one had considered.
+Quantity Over Quality: The more ideas generated, the higher the probability of finding a high-quality breakthrough.</pre></details>
+<details><summary>Slide 12: 2.5 Time Management</summary><pre>2.5 Time Management
+
+Systematically planning, scheduling, monitoring, and controlling all tasks and activities to ensure the project finishes on time, within budget, and meets its goals by efficiently using team time and resources, involving breaking work down, estimating durations, and tracking progress.
+Key Aspects:
+   - Planning &amp; Scheduling: Defining tasks, estimating durations,   
+     identifying dependencies, and creating a realistic timeline    
+     (schedule).
+  - Resource Allocation: Assigning the right team members and resources 
+     tasks at the right time for efficiency.
+  - Monitoring &amp; ControlTracking progress against the schedule, managing 
+     delays, and making adjustments as needed.
+  - Task Manaegement: Breaking large goals into smaller, manageable
+     activities (work breakdown).</pre></details>
+<details><summary>Slide 13: 2.5 Time Management</summary><pre>2.5 Time Management</pre></details>
+<h3>[MR ZAKI] CBS 2332 CHAPTER 3 - Project Initiation &amp; Stakeholder</h3>
+<details><summary>Slide 1: IT Project Management</summary><pre>IT Project Management
+
+Topic 3: Project Initiation &amp; Stakeholder</pre></details>
+<details><summary>Slide 2: Core Activities :</summary><pre>Core Activities :
+Defining the project’s goals, scope, and constraints.
+Identifying key stakeholders and their expectations.
+Appointing the project manager and core team.
+Securing initial funding and approval from sponsor.
+
+What is Project Initiation?
+
+Purpose :
+Confirm on business need
+Define high-level scope
+Identify key stakeholders
+Decide to proceed, delay, or stop
+
+Project initiation is the foundational first phase of project management, designed to define a project&#x27;s purpose, scope, and feasibility while securing approval from key stakeholders. It involves developing a business case, creating a project charter, identifying stakeholders, and ensuring alignment with organizational goals to authorize the project.</pre></details>
+<details><summary>Slide 3: Business case -  A document justifying the project’s feasibility, benefits, and costs.</summary><pre>Business case -  A document justifying the project’s feasibility, benefits, and costs.
+Project charter – A document outlining the project’s purpose, high-level scope, and goals to gain approval.
+Initial stakeholder list – A list documenting key stakeholders, their expectations, and roles.
+
+Key Output From Project Initiation?</pre></details>
+<details><summary>Slide 4: Blank / visual slide</summary><pre>No extractable text found.</pre></details>
+<details><summary>Slide 5: Business Case</summary><pre>Business Case
+
+Problem Statement
+What problem are we trying to solve?
+What happens if nothing is done?
+
+Objective
+What the project aims to achieve
+Should be clear and measurable
+
+Benefits
+Business value
+Cost reduction or revenue improvement
+Risk reduction or compliance improvement</pre></details>
+<details><summary>Slide 6: Why a Business Case is Crucial in IT?</summary><pre>Why a Business Case is Crucial in IT?
+
+Justification: Proves the investment is worthwhile and aligns with business goals.
+Decision Making: Enables stakeholders to approve, reject, or postpone initiatives based on data.
+Resource Allocation: Helps prioritize IT projects, especially for limited financial and human resources.</pre></details>
+<details><summary>Slide 7: Blank / visual slide</summary><pre>No extractable text found.</pre></details>
+<details><summary>Slide 8: Stakeholders</summary><pre>Stakeholders
+
+A stakeholder in an IT project is any individual, group, or organization that can affect, be affected by, or perceive themselves to be affected by the project’s decisions, activities, or outcomes. They have a vested interest in the IT project&#x27;s success and range from project teams and sponsors to end-users and suppliers.
+
+Role in IT Projects
+They define project requirements, provide feedback on software features, and validate that the technology solves the intended business problems.
+
+Identifying stakeholders early helps avoid issues like scope creep, conflicting requirements, and project failure.</pre></details>
+<details><summary>Slide 9: Stakeholders Type</summary><pre>Stakeholders Type
+
+Internal
+Management
+Project team
+IT/Security team
+End users
+
+External
+Vendors
+Customer
+Suppliers
+Regulators / auditors</pre></details>
+<details><summary>Slide 10: Stakeholders Differences</summary><pre>Stakeholders Differences
+
+Aspect | Internal Stakeholders | External Stakeholders
+Position | Inside the organisation | Outside the organisation
+Relationship | Direct (Employment/Ownership) | Indirect (Transactional/Impacted)
+Influence | High, direct control over daily tasks | Varies (purchasing power, regulation)
+Focus | Operational feasibility, resource usage | Product value, financial return, impact
+Examples | Employee, managers, owners | Customer, suppliers, regulators</pre></details>
+<details><summary>Slide 11: Stakeholders Analysis</summary><pre>Stakeholders Analysis
+
+Stakeholder analysis is a critical project management process that identifies and assesses the influence, interests, and impact of individuals or groups involved in a project. It maps stakeholders based on their power and interest to create targeted communication and engagement strategies, ensuring alignment, minimizing risks, and securing project support.
+
+Why need to analyze?
+Not all stakeholders have equal power
+Not everyone needs the same information</pre></details>
+<details><summary>Slide 12: Key Steps in Stakeholder Analysis</summary><pre>Key Steps in Stakeholder Analysis
+
+Identify Stakeholders: Brainstorm all individuals, teams, or organizations affected by or capable of influencing the project (e.g., customers, executives, developers).
+
+Understand &amp; Analyze: Determine their needs, expectations, and potential impact on the project.
+
+Prioritize (Map): Use a Power/Interest Grid to classify stakeholders into four groups to determine the level of engagement
+High Power/High Interest: Manage closely (key players).
+High Power/Low Interest: Keep satisfied.
+Low Power/High Interest: Keep informed.
+Low Power/Low Interest: Monitor with minimum effort.
+
+Develop Engagement Strategy :  Plan how to communicate and manage relationships based on their mapping
+What information?
+How often?
+In what format?</pre></details>
+<details><summary>Slide 13: Common Tools and Techniques in Stakeholder Analysis</summary><pre>Common Tools and Techniques in Stakeholder Analysis
+
+Powe/Interest Grid – Maps stakeholders on a matrix based on their influence and interest.
+
+Stakeholder Matrix/Maps – A table listing stakeholders, their influence, interest, and engagement strategy.
+
+Salience Model – Classifies stakeholders based on their power, legitimacy, and urgency</pre></details>
+<details><summary>Slide 14: Benefits of Stakeholder Analysis</summary><pre>Benefits of Stakeholder Analysis
+
+Risk Mitigation – Identifies potential conflicts or challenges early.
+
+Improved communication – Tailor messaging to specific needs.
+
+Increase support – Builds consensus and gains buy-in from key parties.
+
+Better decision-making – Incorporates diverse perspectives.</pre></details>
+<details><summary>Slide 15: Project Charter</summary><pre>Project Charter
+
+A project charter is a concise, formal document that officially authorizes a project&#x27;s existence, outlining its purpose, scope, objectives, and key participants. Serving as a foundational roadmap, it defines the project manager&#x27;s authority, aligns stakeholders on goals, and secures necessary resources. It acts as an elevator pitch for the project. 
+
+Purpose &amp; Benefits : 
+Authorization – Give the PM the authority to apply resources.
+Alignment – Ensures everyone involved has a shared understanding of the project’s purpose and direction.
+Reference point – Serves as a guide for decision-making throughout the project lifecycle.
+Efficiency – Prevents “scope creep” by clearly defining boundaries early on.</pre></details>
+<details><summary>Slide 16: Project Charter</summary><pre>Project Charter
+
+Key Components of Project Charter :
+Project Title &amp; Purpose : The project’s name and justification (why it is being done).
+Objectives &amp; Success Criteria : Measurable goals and how success will be measured.
+Scope &amp; Deliverable : Clearly defined boundaries of what is included and excluded and the final products.
+Stakeholders &amp; Roles : Key individuals involved, including the sponsor and project manager.
+High-Level timeline &amp; Budget : Estimated milestones and resource constraints.
+Risk &amp; Assumptions : Known constraints and potential risks.</pre></details>
+<details><summary>Slide 17: Blank / visual slide</summary><pre>No extractable text found.</pre></details>
+<details><summary>Slide 18: Questions?</summary><pre>Questions?</pre></details>
+<details><summary>Slide 19: Class Activity</summary><pre>Class Activity
+
+Draft a Simple Project Charter
+Form groups of 3-4
+Choose a simple IT or Cybersecurity Project
+E.g., Security Awareness System, Access Control Upgrade, Firewall Upgrade
+Your charter must include:
+Project Title
+Project Objective
+High-Level Scope
+Timeline &amp; budget (assumption allowed)
+Key stakeholders
+One major risk</pre></details>
+<details><summary>Slide 20: Project Title</summary><pre>Project Title
+(Short, clear, non-technical name)
+________________________________________________________________________________________________________________________________________________
+Project Objective
+Describe why the project exists and what is aims to achieve.
+What problem is being solved?
+What outcome is expected?
+Guideline:
+1–2 clear sentences. Avoid vague words like improve or enhance without explanation.
+___________________________________________________________________________________________________________________________________
+High-Level Scope
+In Scope (Included):
+Key activities or deliverables covered by the project
+Out of Scope (Excluded):
+Items intentionally not included (to avoid scope creep)
+_________________________________________________________________________________________________________________________________________________
+Key Stakeholders – List individuals or groups who can influence or are affected by the project.
 
 
-  <section class="toolCard" id="pretest">
-    <div class="sectionTitle">
-      <div>
-        <span class="pill">Mixed Assessment</span>
-        <h3>Pretest: Objective + Subjective</h3>
-        <p>Objective questions are auto-checked. Subjective answers show sample answers for self-marking.</p>
-      </div>
-      <div class="testActions">
-        <button id="startPretest">Start / Reset Pretest</button>
-        <button id="checkPretest">Check Objective Answers</button>
-      </div>
-    </div>
-    <div id="pretestContent"></div>
-    <div id="scoreBox" class="scoreBox hidden"></div>
-  </section>
+___________________________________________________________________________________________________________________________________
+Major Risk &amp; Initial Mitigation
 
-  <section class="toolCard" id="mindmap">
-    <div class="sectionTitle">
-      <div>
-        <span class="pill">Visual Revision</span>
-        <h3>Mind Map</h3>
-        <p>Use this to see how the chapters connect.</p>
-      </div>
-    </div>
-    <div id="mindmapContent" class="mindmap"></div>
-  </section>
+Identify one major risk that could affect the project at an early stage.
+Risk: What could seriously go wrong?
+Mitigation: How will this risk be reduced or managed?
 
-  <section class="toolCard" id="formulas">
-    <div class="sectionTitle">
-      <div>
-        <span class="pill">Quick Reference</span>
-        <h3>Formula Sheet</h3>
-        <p>Important calculations from planning, controlling, and cost performance.</p>
-      </div>
-    </div>
-    <div id="formulaContent" class="formulaGrid"></div>
-  </section>
+Stakeholder | Role/Interest</pre></details>
+<details><summary>Slide 21: Example 1: Cybersecurity Awareness Training Project</summary><pre>Example 1: Cybersecurity Awareness Training Project
+Objective: Reduce phishing-related incidents by increasing staff awareness.
+Stakeholders: HR, IT Security Team, All Employees, Management
+Major Risk: Low staff participation or engagement
 
-  <section class="toolCard" id="examTips">
-    <div class="sectionTitle">
-      <div>
-        <span class="pill">Revision Strategy</span>
-        <h3>Exam Tips & Common Mistakes</h3>
-      </div>
-    </div>
-    <div class="tipsGrid">
-      <div><h4>High chance topics</h4><ul><li>Project life cycle</li><li>Team development stages</li><li>Business case vs project charter</li><li>Stakeholder Power/Interest Grid</li><li>WBS and RACI</li><li>Forward/backward pass</li><li>Critical path and slack</li><li>EV, AC, CV, CPI</li></ul></div>
-      <div><h4>Common mistakes</h4><ul><li>Confusing Responsible and Accountable in RACI.</li><li>Thinking highest spending means highest progress.</li><li>Forgetting Monitoring and Controlling happens during Execution.</li><li>Confusing Actual Cost with Earned Value.</li><li>Forgetting CPI &lt; 1.0 means cost overrun.</li></ul></div>
-      <div><h4>How to answer subjective questions</h4><ul><li>Define the term first.</li><li>Give 2–4 key points.</li><li>Add a simple IT/cybersecurity example.</li><li>Use formulas where needed.</li><li>End with why it matters to project success.</li></ul></div>
-    </div>
-  </section>
+Example 2 : Secure Password Policy Implementation
+Objective: Enforce stronger password practices organization-wide.
+Stakeholders: All Users, IT Support, Management
+Major Risk: User non-compliance
 
-  <section id="slideText">
-    <div class="sectionTitle">
-      <div>
-        <span class="pill">Full Content</span>
-        <h3>Full Slide Text</h3>
-        <p>Extracted slide-by-slide text from the uploaded PowerPoint files.</p>
-      </div>
-      <div class="testActions">
-        <button id="expand">Expand all</button>
-        <button id="collapse">Collapse all</button>
-        <button id="flashcards">All Slide Flashcards</button>
-        <button id="reset" class="danger">Reset progress</button>
-      </div>
-    </div>
-    <section id="content"></section>
-  </section>
+Example 3 :  Access Control Policy Standardization
+Objective: Standardize access control rules across departments to reduce unauthorized access.
+Stakeholders: IT Security, Department Heads, System Users
+Major Risk: User resistance due to reduced access</pre></details>
+<h3>CBS 2332 CHAPTER 3 - Planning and Controlling</h3>
+<details><summary>Slide 1: IT Project Management</summary><pre>IT Project Management
+
+Topic 3: Project Planning &amp; Controlling
+
+Diploma Level | Module 3.1 - 3.5</pre></details>
+<details><summary>Slide 2: Objectives define what needs to be achieved. In IT projects, we adhere to the SMART criteria to ensu</summary><pre>Objectives define what needs to be achieved. In IT projects, we adhere to the SMART criteria to ensure clarity.
+
+Specific
+
+Clear &amp; unambiguous goals.
+
+Measurable
+
+Quantifiable progress.
+
+Achievable
+
+Realistic within resources.
+
+Time-Bound
+
+Defined deadlines.
+
+3.1 Project Objectives</pre></details>
+<details><summary>Slide 3: 3.2 Work Breakdown Structure (WBS)</summary><pre>3.2 Work Breakdown Structure (WBS)
+
+Decomposition of Work
+
+The WBS is a hierarchical decomposition of the total scope of work to be carried out by the project team.
+
+The 100% Rule: The WBS includes 100% of the work defined by the project scope.
+
+Root: The final project deliverable (e.g., &quot;Mobile App&quot;).
+
+Phases: Major logical groupings (Design, Dev, Test).
+
+Work Packages: The lowest level, manageable activities.</pre></details>
+<details><summary>Slide 4: Blank / visual slide</summary><pre>No extractable text found.</pre></details>
+<details><summary>Slide 5: The RACI matrix clarifies roles and responsibilities for each task, preventing confusion in IT teams</summary><pre>The RACI matrix clarifies roles and responsibilities for each task, preventing confusion in IT teams.
+
+R: Responsible (Doer), A: Accountable (Owner), C: Consulted (Two-way), I: Informed (One-way)
+
+Activity | Project Manager | Developer | Tester | Client
+Define Requirements | Accountable | Consulted | Informed | Responsible
+Code Module A | Accountable | Responsible | Informed | Informed
+System Testing | Informed | Consulted | Responsible | Informed
+User Acceptance | Accountable | Consulted | Consulted | Responsible
+
+3.3 Responsibility Matrix (RACI)</pre></details>
+<details><summary>Slide 6: Project Scheduling</summary><pre>Project Scheduling
+
+Scheduling determines the start and finish dates for project activities. It is the roadmap for execution.
+
+Estimation Techniques
+
+Identify activities (from WBS).
+
+Sequence activities (Dependencies).
+
+Estimate resources &amp; durations.
+
+Expert Judgment: Based on historical experience.
+
+Analogous: Comparing to a similar past project (Top-down).
+
+Parametric: Statistical relationship (e.g., hours per line of code).
+
+Three-Point: (Optimistic + 4*MostLikely + Pessimistic) / 6.
+
+3.4 Scheduling &amp; 3.4.1 Duration Estimates</pre></details>
+<details><summary>Slide 7: Network Logic</summary><pre>Network Logic
+
+A network diagram visually displays the logical relationships (dependencies) between project activities.
+
+This allows us to identify the critical path and calculate project duration.
+
+Nodes: Represent activities (in PDM - Precedence Diagramming Method).
+
+Arrows: Show dependencies (A must finish before B starts).
+
+Path: A sequence of connected activities.
+
+3.5 Developing the Network</pre></details>
+<details><summary>Slide 8: Concepts</summary><pre>Concepts
+
+The Forward Pass determines the earliest times an activity can start and finish based on network logic.
+
+Formulas
+
+ES (Early Start): The earliest point an activity can begin.
+
+EF (Early Finish): ES + Duration.
+
+Rule: When activities merge, the ES of the successor is the MAX EF of all predecessors.
+
+3.4.3 Forward Pass Calculation</pre></details>
+<details><summary>Slide 9: Concepts</summary><pre>Concepts
+
+The Backward Pass determines the latest times an activity can start and finish without delaying the project.
+
+Formulas
+
+LF (Late Finish): The latest point an activity can end.
+
+LS (Late Start): LF - Duration.
+
+Rule: When tracing back, the LF of a predecessor is the MIN LS of all successors.
+
+3.4.3 Backward Pass Calculation</pre></details>
+<details><summary>Slide 10: 0</summary><pre>0
+
+Total Slack
+
+The amount of time an activity can be delayed without delaying the project end date. 
+Slack = LS - ES
+
+CP
+
+Critical Path
+
+The longest path through the network diagram. It determines the shortest time to complete the project. Activities on the Critical Path have Zero Slack.
+
+Critical Path &amp; Slack</pre></details>
+<details><summary>Slide 11: 3.5.1 Gantt Charts</summary><pre>3.5.1 Gantt Charts
+
+Visualizing the Schedule
+
+A Gantt chart is a horizontal bar chart used to illustrate the project schedule.
+
+Modern tools like Microsoft Project automate the creation of Gantt charts from WBS and dependency data.
+
+Axis: Time is on the X-axis; Activities are on the Y-axis.
+
+Bars: Length represents duration.
+
+Utility: Easy for stakeholders to understand progress and overlaps.</pre></details>
+<details><summary>Slide 12: Blank / visual slide</summary><pre>No extractable text found.</pre></details>
+<details><summary>Slide 13: Define</summary><pre>Define
+
+Set SMART objectives and decompose work using WBS.
+
+Assign
+
+Clarify roles with the RACI matrix.
+
+Calculate
+
+Use Network Logic (ES, EF, LS, LF) to find the Critical Path.
+
+Visualize
+
+Communicate the plan effectively using Gantt Charts.
+
+Topic 3 Summary</pre></details>
+<details><summary>Slide 14: Questions?</summary><pre>Questions?
+
+Thank you for your attention.</pre></details>
+<details><summary>Slide 15: https://itpmschool.com/wp-content/uploads/2023/10/Work-breakdown-structure-chart.webp</summary><pre>https://itpmschool.com/wp-content/uploads/2023/10/Work-breakdown-structure-chart.webp
+
+Source: itpmschool.com
+
+https://www.project-risk-manager.com/wp-content/uploads/2017/10/PERT-Network-Diagram-Rev0.png
+
+Source: www.project-risk-manager.com
+
+https://img.officetimeline.com/website/Content/templates/images/gantt-charts/software-development-gantt-chart-template.png
+
+Source: www.officetimeline.com
+
+Image Sources</pre></details>
+<h3>CBS 2332 CHAPTER 4- Cost Planning</h3>
+<details><summary>Slide 1: IT Project Management</summary><pre>IT Project Management
+
+Topic 4: Cost Planning &amp; Performance
+
+Diploma Level | Module 4.1 - 4.5</pre></details>
+<details><summary>Slide 2: Importance of Costing</summary><pre>Importance of Costing
+
+Accurate cost estimates are the foundation of project success. They determine feasibility and secure funding.
+
+Types of Costs in IT
+
+Understanding cost behavior is crucial for accurate estimation.
+
+Feasibility: Can we afford to do this project?
+
+Baseline: Creates a standard to measure performance against.
+
+Funding: Justifies the investment to stakeholders.
+
+Direct Costs: Salaries, Software Licenses, Servers.
+
+Indirect Costs: Overhead, Office Rent, Utilities.
+
+Fixed vs. Variable: One-time hardware purchase vs. monthly cloud usage fees.
+
+4.1 Project Cost Estimates</pre></details>
+<details><summary>Slide 3: The process of aggregating estimated costs to establish an authorized cost baseline.</summary><pre>The process of aggregating estimated costs to establish an authorized cost baseline.
+
+1. Allocate Total
+
+Distribute the total project estimate to individual work packages in the WBS.
+
+2. Aggregate
+
+Sum the costs of work packages to determine the total Budgeted Cost.
+
+3. Authorize
+
+Add contingency reserves to form the final Cost Baseline.
+
+4.2 Project Budgeting: Allocation</pre></details>
+<details><summary>Slide 4: 4.2 Cumulative Budgeted Cost</summary><pre>4.2 Cumulative Budgeted Cost
+
+The S-Curve
+
+Project costs are not spent linearly. Budgeting involves developing a time-phased view of costs.
+
+This accumulation of costs over time creates the characteristic &quot;S-Curve&quot; used for monitoring performance.
+
+Start: Low spending (Planning).
+
+Middle: Peak spending (Execution/Development).
+
+End: Tapering off (Closure).</pre></details>
+<details><summary>Slide 5: Blank / visual slide</summary><pre>No extractable text found.</pre></details>
+<details><summary>Slide 6: Actual Cost (AC)</summary><pre>Actual Cost (AC)
+
+The total cost actually incurred and recorded in accomplishing work performed during a given time period.
+
+Committed Cost
+
+Funds that have been obligated or encumbered but not yet paid. Critical for IT procurement.
+
+Salaries paid.
+
+Invoices settled.
+
+Software subscriptions paid.
+
+Signed Purchase Orders (POs) for hardware.
+
+Contracts signed with external vendors.
+
+Why important? Prevents accidental overspending of the &quot;remaining&quot; budget.
+
+4.3 Determining Actual Cost</pre></details>
+<details><summary>Slide 7: Regular comparison allows for early detection of cost overruns.</summary><pre>Regular comparison allows for early detection of cost overruns.
+
+Category | Budgeted Cost | Actual Cost | Variance
+Server Hardware | $10,000 | $12,500 | -$2,500 (Over)
+Software Licenses | $5,000 | $4,800 | +$200 (Under)
+Developer Hours | $20,000 | $18,000 | +$2,000 (Under)
+Total | $35,000 | $35,300 | -$300 (Over)
+
+4.3 Comparing Actual vs. Budgeted</pre></details>
+<details><summary>Slide 8: EV = % Complete x Budget at Completion (BAC)</summary><pre>EV = % Complete x Budget at Completion (BAC)
+
+50%
+
+Budget Spent
+
+Just because you spent 50% of the money, doesn&#x27;t mean you are 50% done.
+
+EV
+
+Earned Value
+
+The estimated value of the work actually completed. It measures how well the project is adhering to the plan.
+
+4.4 Determining Value (EV)</pre></details>
+<details><summary>Slide 9: Cost Variance (CV)</summary><pre>Cost Variance (CV)
+
+The amount of budget deficit or surplus at a given point in time.
+
+Result: Negative = Over Budget.
+
+Cost Performance Index (CPI)
+
+A measure of the cost efficiency of budgeted resources.
+
+Result: &lt; 1.0 = Cost Overrun.
+
+4.5 Cost Performance Analysis</pre></details>
+<details><summary>Slide 10: 4.5 Managing Cash Flow</summary><pre>4.5 Managing Cash Flow
+
+Liquidity is King
+
+Cost performance is about budget; Cash flow is about having money in the bank to pay bills.
+
+Project Managers must align the Project Schedule with the Funding Limit Reconciliation.
+
+Inflow: Milestones payments from client.
+
+Outflow: Monthly salaries, hardware purchases.
+
+The Gap: IT projects often have large upfront outflows (hardware) before inflows arrive.</pre></details>
+<details><summary>Slide 11: Blank / visual slide</summary><pre>No extractable text found.</pre></details>
+<details><summary>Slide 12: Budget</summary><pre>Budget
+
+Create the Cost Baseline (S-Curve) by aggregating estimates.
+
+Track
+
+Monitor Actual Costs (AC) and Committed Costs.
+
+Analyze
+
+Use CPI and CV to determine if the project is adhering to the budget.
+
+Topic 4 Summary</pre></details>
+<details><summary>Slide 13: Questions?</summary><pre>Questions?
+
+IT Project Management: Cost Planning &amp; Performance</pre></details>
+<details><summary>Slide 14: https://www.zerofloat.com.au/wp-content/uploads/2021/07/SCurve.png</summary><pre>https://www.zerofloat.com.au/wp-content/uploads/2021/07/SCurve.png
+
+Source: www.zerofloat.com.au
+
+https://www.smartsheet.com/sites/default/files/2020-09/IC-Project-Cash-Flow-Template.png
+
+Source: www.smartsheet.com
+
+Image Sources</pre></details>
+</section>
 </main>
 
-<dialog id="dialog">
-  <button id="close">×</button>
-  <div id="dialogContent"></div>
-</dialog>
-
-<script id="decksData" type="application/json">[{"filename": "CBS 2332 CHAPTER 1 - Project_Management_Concepts.pptx", "title": "CBS 2332 CHAPTER 1 - Project_Management_Concepts", "slide_count": 13, "slides": [{"number": 1, "text": "Topic 1\nProject Management Concepts"}, {"number": 2, "text": ""}, {"number": 3, "text": "Project Management in Cyber Security"}, {"number": 4, "text": "Security Concepts"}, {"number": 5, "text": ""}, {"number": 6, "text": "Attributes of a Project"}, {"number": 7, "text": "1.1 Attribute of a Project\n\nCore Definition: A project is a temporary endeavor undertaken to create a unique product, service, or result.\nTemporary: Every project has a definite beginning and end.\nUnique Purpose: It is not a routine operation; it results in a specific \"deliverable.\"\nProgressive Elaboration: Projects are developed in steps and continue by increments.\nResource Consuming: Requires various resources (human, financial, and hardware/software).\nPrimary Sponsor: Usually has a main stakeholder or \"Champion\" who provides direction and funding.\nUncertainty: Because every project is unique, it carries a degree of risk and unknowns."}, {"number": 8, "text": "1.2 Project Life Cycle\n\nThe project life cycle provides a framework for managing a project from its initiation to its closure. It defines the stages a project typically goes through and the activities performed in each stage. Different industries and organizations may use slightly different life cycle models, but the core principles remain the same. A common project life cycle includes the following phases:"}, {"number": 9, "text": "1.2 Project Life Cycle\n\nInitiation: This is the starting phase of the project. It involves defining the project's objectives, scope, and feasibility.\nPlanning: This phase involves developing a detailed plan for how the project will be executed.\nExecution: This phase involves carrying out the tasks defined in the project plan.\n Monitoring and Controlling: This phase involves tracking the project's progress, identifying any deviations from the plan, and taking corrective action. This phase runs concurrently with the execution phase."}, {"number": 10, "text": "1.3 The Project Management Process\n\nStarting the Project (Initiation): Defining the project at a high level and obtaining authorization.\nOrganizing and Preparing (Planning): Developing the roadmap (Scope, Schedule, Budget).\nCarrying out the Work (Execution): The phase where the \"heavy lifting\" happens and the product is built.\nMonitoring and Controlling: These processes involve tracking the project's progress, identifying any deviations from the plan, and taking corrective action. They include monitoring project performance, identifying variances, taking corrective action, managing risks, and reporting progress.\nClosing the Project (Closure): Formalizing acceptance and handing over the final product."}, {"number": 11, "text": ""}, {"number": 12, "text": "1.4 Benefits of Project Management"}, {"number": 13, "text": ""}]}, {"filename": "CBS2332 CHAPTER 2- THE PROJECT TEAM.pptx", "title": "CBS2332 CHAPTER 2- THE PROJECT TEAM", "slide_count": 13, "slides": [{"number": 1, "text": ""}, {"number": 2, "text": "Most organizations' leadership or management teams set goals to support normal business operations. \nA company may also find it necessary to create a project team tasked with improving a process or finding a solution to a problem.\n Businesses can meet their targets and achieve success by establishing an effective project team.\nA group of individuals working on a specific project with a similar objective is the simple answer to 'What is a project team?’. \nEach project team member is responsible for their assigned tasks and their contribution to the project's success.\n\nWhat is the Project Team?"}, {"number": 3, "text": "2.1 Project Team Development and Effectiveness\n\nProject teams, like any group, evolve through distinct stages. Understanding these stages allows project managers to anticipate challenges and facilitate team growth:\n\nForming: \nThis initial stage is characterized by uncertainty and anxiety as team members get acquainted and learn about the project goals. \nStorming: \nAs team members become more comfortable, differences in opinions and working styles emerge, leading to potential conflict. \nNorming: \nThe team begins to establish norms and processes for working together. Members start to understand and appreciate each other's strengths and weaknesses.\nPerforming: \nThe team operates at its peak performance. Members are highly collaborative, autonomous, and focused on achieving project goals. \nAdjourning: \nThis final stage involves the dissolution of the team after the project is completed."}, {"number": 4, "text": "2.1 Project Team Development and Effectiveness\n\nClear Goals and Objectives: Everyone understands the project's purpose and their individual roles in achieving it.\nOpen Communication: Team members feel comfortable sharing ideas, concerns, and feedback.\nMutual Trust and Respect: Members trust each other's abilities and respect their opinions.\nCollaboration and Cooperation: Team members work together effectively to achieve common goals.\nCommitment and Accountability: Members are committed to the project's success and take responsibility for their actions.\nEffective Leadership: The project manager provides clear direction, support, and motivation.\nConstructive Conflict Resolution: Disagreements are addressed openly and resolved in a way that strengthens the team.\n\nAn effective project team is characterized by several key attributes:"}, {"number": 5, "text": "2.1 Project Team Development and Effectiveness\n\nPoor Communication: \nIneffective communication can result in misunderstandings, errors, and delays.\n\nLack of Clear Goals and Objectives: Ambiguity about the project's purpose can lead to confusion and frustration.\n\nInterpersonal conflicts:\nAn inevitable part of the collaboration process due to the diverse perspectives and constraints inherent in any project.\n\nInsufficient Resources:\nOne of the most frequent triggers for team dysfunction. When the demand for time, money, or people exceeds the supply, it shifts a team from a collaborative \"Performing\""}, {"number": 6, "text": "2.1 Project Team Development and Effectiveness\n\nTo be an effective team member, consider the following:"}, {"number": 7, "text": "2.2 Ethical Behavior\n\nEthical behavior is crucial for maintaining trust and credibility in project management. \nProject managers and team members should adhere to a code of ethics that promotes honesty, integrity, fairness, and responsibility."}, {"number": 8, "text": "2.3 Conflict on Project\n\nConflict is inevitable in project environments, but it can be managed constructively."}, {"number": 9, "text": "2.4 Problem Solving\n\nProblem-solving is a critical skill for project teams. Projects inevitably encounter challenges and obstacles that require creative and effective solutions. A structured approach to problem-solving can help teams identify the root cause of problems, generate potential solutions, and implement the most effective course of action."}, {"number": 10, "text": "2.4 Problem Solving\n\nA structured approach to problem-solving can help teams systematically address challenges and find effective solutions. One such approach involves the following nine steps:"}, {"number": 11, "text": "2.4 Problem Solving\n\nA collaborative process to generate many ideas for solving problems or exploring opportunities, emphasizing creativity, deferring judgment, building on others' ideas, and focusing on quantity to find innovative solutions.\nTo be effective, every project team member must follow four foundational rules:\nDefer Judgment: No one is allowed to criticize or evaluate ideas during the session. This encourages people to share without fear of looking \"wrong.“\nEncourage Wild Ideas: In a project context, sometimes the most \"impossible\" idea sparks a realistic, innovative solution that no one had considered.\nQuantity Over Quality: The more ideas generated, the higher the probability of finding a high-quality breakthrough."}, {"number": 12, "text": "2.5 Time Management\n\nSystematically planning, scheduling, monitoring, and controlling all tasks and activities to ensure the project finishes on time, within budget, and meets its goals by efficiently using team time and resources, involving breaking work down, estimating durations, and tracking progress.\nKey Aspects:\n   - Planning & Scheduling: Defining tasks, estimating durations,   \n     identifying dependencies, and creating a realistic timeline    \n     (schedule).\n  - Resource Allocation: Assigning the right team members and resources \n     tasks at the right time for efficiency.\n  - Monitoring & ControlTracking progress against the schedule, managing \n     delays, and making adjustments as needed.\n  - Task Manaegement: Breaking large goals into smaller, manageable\n     activities (work breakdown)."}, {"number": 13, "text": "2.5 Time Management"}]}, {"filename": "[MR ZAKI] CBS 2332 CHAPTER 3 - Project Initiation & Stakeholder.pptx", "title": "[MR ZAKI] CBS 2332 CHAPTER 3 - Project Initiation & Stakeholder", "slide_count": 21, "slides": [{"number": 1, "text": "IT Project Management\n\nTopic 3: Project Initiation & Stakeholder"}, {"number": 2, "text": "Core Activities :\nDefining the project’s goals, scope, and constraints.\nIdentifying key stakeholders and their expectations.\nAppointing the project manager and core team.\nSecuring initial funding and approval from sponsor.\n\nWhat is Project Initiation?\n\nPurpose :\nConfirm on business need\nDefine high-level scope\nIdentify key stakeholders\nDecide to proceed, delay, or stop\n\nProject initiation is the foundational first phase of project management, designed to define a project's purpose, scope, and feasibility while securing approval from key stakeholders. It involves developing a business case, creating a project charter, identifying stakeholders, and ensuring alignment with organizational goals to authorize the project."}, {"number": 3, "text": "Business case -  A document justifying the project’s feasibility, benefits, and costs.\nProject charter – A document outlining the project’s purpose, high-level scope, and goals to gain approval.\nInitial stakeholder list – A list documenting key stakeholders, their expectations, and roles.\n\nKey Output From Project Initiation?"}, {"number": 4, "text": ""}, {"number": 5, "text": "Business Case\n\nProblem Statement\nWhat problem are we trying to solve?\nWhat happens if nothing is done?\n\nObjective\nWhat the project aims to achieve\nShould be clear and measurable\n\nBenefits\nBusiness value\nCost reduction or revenue improvement\nRisk reduction or compliance improvement"}, {"number": 6, "text": "Why a Business Case is Crucial in IT?\n\nJustification: Proves the investment is worthwhile and aligns with business goals.\nDecision Making: Enables stakeholders to approve, reject, or postpone initiatives based on data.\nResource Allocation: Helps prioritize IT projects, especially for limited financial and human resources."}, {"number": 7, "text": ""}, {"number": 8, "text": "Stakeholders\n\nA stakeholder in an IT project is any individual, group, or organization that can affect, be affected by, or perceive themselves to be affected by the project’s decisions, activities, or outcomes. They have a vested interest in the IT project's success and range from project teams and sponsors to end-users and suppliers.\n\nRole in IT Projects\nThey define project requirements, provide feedback on software features, and validate that the technology solves the intended business problems.\n\nIdentifying stakeholders early helps avoid issues like scope creep, conflicting requirements, and project failure."}, {"number": 9, "text": "Stakeholders Type\n\nInternal\nManagement\nProject team\nIT/Security team\nEnd users\n\nExternal\nVendors\nCustomer\nSuppliers\nRegulators / auditors"}, {"number": 10, "text": "Stakeholders Differences\n\nAspect | Internal Stakeholders | External Stakeholders\nPosition | Inside the organisation | Outside the organisation\nRelationship | Direct (Employment/Ownership) | Indirect (Transactional/Impacted)\nInfluence | High, direct control over daily tasks | Varies (purchasing power, regulation)\nFocus | Operational feasibility, resource usage | Product value, financial return, impact\nExamples | Employee, managers, owners | Customer, suppliers, regulators"}, {"number": 11, "text": "Stakeholders Analysis\n\nStakeholder analysis is a critical project management process that identifies and assesses the influence, interests, and impact of individuals or groups involved in a project. It maps stakeholders based on their power and interest to create targeted communication and engagement strategies, ensuring alignment, minimizing risks, and securing project support.\n\nWhy need to analyze?\nNot all stakeholders have equal power\nNot everyone needs the same information"}, {"number": 12, "text": "Key Steps in Stakeholder Analysis\n\nIdentify Stakeholders: Brainstorm all individuals, teams, or organizations affected by or capable of influencing the project (e.g., customers, executives, developers).\n\nUnderstand & Analyze: Determine their needs, expectations, and potential impact on the project.\n\nPrioritize (Map): Use a Power/Interest Grid to classify stakeholders into four groups to determine the level of engagement\nHigh Power/High Interest: Manage closely (key players).\nHigh Power/Low Interest: Keep satisfied.\nLow Power/High Interest: Keep informed.\nLow Power/Low Interest: Monitor with minimum effort.\n\nDevelop Engagement Strategy :  Plan how to communicate and manage relationships based on their mapping\nWhat information?\nHow often?\nIn what format?"}, {"number": 13, "text": "Common Tools and Techniques in Stakeholder Analysis\n\nPowe/Interest Grid – Maps stakeholders on a matrix based on their influence and interest.\n\nStakeholder Matrix/Maps – A table listing stakeholders, their influence, interest, and engagement strategy.\n\nSalience Model – Classifies stakeholders based on their power, legitimacy, and urgency"}, {"number": 14, "text": "Benefits of Stakeholder Analysis\n\nRisk Mitigation – Identifies potential conflicts or challenges early.\n\nImproved communication – Tailor messaging to specific needs.\n\nIncrease support – Builds consensus and gains buy-in from key parties.\n\nBetter decision-making – Incorporates diverse perspectives."}, {"number": 15, "text": "Project Charter\n\nA project charter is a concise, formal document that officially authorizes a project's existence, outlining its purpose, scope, objectives, and key participants. Serving as a foundational roadmap, it defines the project manager's authority, aligns stakeholders on goals, and secures necessary resources. It acts as an elevator pitch for the project. \n\nPurpose & Benefits : \nAuthorization – Give the PM the authority to apply resources.\nAlignment – Ensures everyone involved has a shared understanding of the project’s purpose and direction.\nReference point – Serves as a guide for decision-making throughout the project lifecycle.\nEfficiency – Prevents “scope creep” by clearly defining boundaries early on."}, {"number": 16, "text": "Project Charter\n\nKey Components of Project Charter :\nProject Title & Purpose : The project’s name and justification (why it is being done).\nObjectives & Success Criteria : Measurable goals and how success will be measured.\nScope & Deliverable : Clearly defined boundaries of what is included and excluded and the final products.\nStakeholders & Roles : Key individuals involved, including the sponsor and project manager.\nHigh-Level timeline & Budget : Estimated milestones and resource constraints.\nRisk & Assumptions : Known constraints and potential risks."}, {"number": 17, "text": ""}, {"number": 18, "text": "Questions?"}, {"number": 19, "text": "Class Activity\n\nDraft a Simple Project Charter\nForm groups of 3-4\nChoose a simple IT or Cybersecurity Project\nE.g., Security Awareness System, Access Control Upgrade, Firewall Upgrade\nYour charter must include:\nProject Title\nProject Objective\nHigh-Level Scope\nTimeline & budget (assumption allowed)\nKey stakeholders\nOne major risk"}, {"number": 20, "text": "Project Title\n(Short, clear, non-technical name)\n________________________________________________________________________________________________________________________________________________\nProject Objective\nDescribe why the project exists and what is aims to achieve.\nWhat problem is being solved?\nWhat outcome is expected?\nGuideline:\n1–2 clear sentences. Avoid vague words like improve or enhance without explanation.\n___________________________________________________________________________________________________________________________________\nHigh-Level Scope\nIn Scope (Included):\nKey activities or deliverables covered by the project\nOut of Scope (Excluded):\nItems intentionally not included (to avoid scope creep)\n_________________________________________________________________________________________________________________________________________________\nKey Stakeholders – List individuals or groups who can influence or are affected by the project.\n\n\n___________________________________________________________________________________________________________________________________\nMajor Risk & Initial Mitigation\n\nIdentify one major risk that could affect the project at an early stage.\nRisk: What could seriously go wrong?\nMitigation: How will this risk be reduced or managed?\n\nStakeholder | Role/Interest"}, {"number": 21, "text": "Example 1: Cybersecurity Awareness Training Project\nObjective: Reduce phishing-related incidents by increasing staff awareness.\nStakeholders: HR, IT Security Team, All Employees, Management\nMajor Risk: Low staff participation or engagement\n\nExample 2 : Secure Password Policy Implementation\nObjective: Enforce stronger password practices organization-wide.\nStakeholders: All Users, IT Support, Management\nMajor Risk: User non-compliance\n\nExample 3 :  Access Control Policy Standardization\nObjective: Standardize access control rules across departments to reduce unauthorized access.\nStakeholders: IT Security, Department Heads, System Users\nMajor Risk: User resistance due to reduced access"}]}, {"filename": "CBS 2332 CHAPTER 3 - Planning and Controlling.pptx", "title": "CBS 2332 CHAPTER 3 - Planning and Controlling", "slide_count": 15, "slides": [{"number": 1, "text": "IT Project Management\n\nTopic 3: Project Planning & Controlling\n\nDiploma Level | Module 3.1 - 3.5"}, {"number": 2, "text": "Objectives define what needs to be achieved. In IT projects, we adhere to the SMART criteria to ensure clarity.\n\nSpecific\n\nClear & unambiguous goals.\n\nMeasurable\n\nQuantifiable progress.\n\nAchievable\n\nRealistic within resources.\n\nTime-Bound\n\nDefined deadlines.\n\n3.1 Project Objectives"}, {"number": 3, "text": "3.2 Work Breakdown Structure (WBS)\n\nDecomposition of Work\n\nThe WBS is a hierarchical decomposition of the total scope of work to be carried out by the project team.\n\nThe 100% Rule: The WBS includes 100% of the work defined by the project scope.\n\nRoot: The final project deliverable (e.g., \"Mobile App\").\n\nPhases: Major logical groupings (Design, Dev, Test).\n\nWork Packages: The lowest level, manageable activities."}, {"number": 4, "text": ""}, {"number": 5, "text": "The RACI matrix clarifies roles and responsibilities for each task, preventing confusion in IT teams.\n\nR: Responsible (Doer), A: Accountable (Owner), C: Consulted (Two-way), I: Informed (One-way)\n\nActivity | Project Manager | Developer | Tester | Client\nDefine Requirements | Accountable | Consulted | Informed | Responsible\nCode Module A | Accountable | Responsible | Informed | Informed\nSystem Testing | Informed | Consulted | Responsible | Informed\nUser Acceptance | Accountable | Consulted | Consulted | Responsible\n\n3.3 Responsibility Matrix (RACI)"}, {"number": 6, "text": "Project Scheduling\n\nScheduling determines the start and finish dates for project activities. It is the roadmap for execution.\n\nEstimation Techniques\n\nIdentify activities (from WBS).\n\nSequence activities (Dependencies).\n\nEstimate resources & durations.\n\nExpert Judgment: Based on historical experience.\n\nAnalogous: Comparing to a similar past project (Top-down).\n\nParametric: Statistical relationship (e.g., hours per line of code).\n\nThree-Point: (Optimistic + 4*MostLikely + Pessimistic) / 6.\n\n3.4 Scheduling & 3.4.1 Duration Estimates"}, {"number": 7, "text": "Network Logic\n\nA network diagram visually displays the logical relationships (dependencies) between project activities.\n\nThis allows us to identify the critical path and calculate project duration.\n\nNodes: Represent activities (in PDM - Precedence Diagramming Method).\n\nArrows: Show dependencies (A must finish before B starts).\n\nPath: A sequence of connected activities.\n\n3.5 Developing the Network"}, {"number": 8, "text": "Concepts\n\nThe Forward Pass determines the earliest times an activity can start and finish based on network logic.\n\nFormulas\n\nES (Early Start): The earliest point an activity can begin.\n\nEF (Early Finish): ES + Duration.\n\nRule: When activities merge, the ES of the successor is the MAX EF of all predecessors.\n\n3.4.3 Forward Pass Calculation"}, {"number": 9, "text": "Concepts\n\nThe Backward Pass determines the latest times an activity can start and finish without delaying the project.\n\nFormulas\n\nLF (Late Finish): The latest point an activity can end.\n\nLS (Late Start): LF - Duration.\n\nRule: When tracing back, the LF of a predecessor is the MIN LS of all successors.\n\n3.4.3 Backward Pass Calculation"}, {"number": 10, "text": "0\n\nTotal Slack\n\nThe amount of time an activity can be delayed without delaying the project end date. \nSlack = LS - ES\n\nCP\n\nCritical Path\n\nThe longest path through the network diagram. It determines the shortest time to complete the project. Activities on the Critical Path have Zero Slack.\n\nCritical Path & Slack"}, {"number": 11, "text": "3.5.1 Gantt Charts\n\nVisualizing the Schedule\n\nA Gantt chart is a horizontal bar chart used to illustrate the project schedule.\n\nModern tools like Microsoft Project automate the creation of Gantt charts from WBS and dependency data.\n\nAxis: Time is on the X-axis; Activities are on the Y-axis.\n\nBars: Length represents duration.\n\nUtility: Easy for stakeholders to understand progress and overlaps."}, {"number": 12, "text": ""}, {"number": 13, "text": "Define\n\nSet SMART objectives and decompose work using WBS.\n\nAssign\n\nClarify roles with the RACI matrix.\n\nCalculate\n\nUse Network Logic (ES, EF, LS, LF) to find the Critical Path.\n\nVisualize\n\nCommunicate the plan effectively using Gantt Charts.\n\nTopic 3 Summary"}, {"number": 14, "text": "Questions?\n\nThank you for your attention."}, {"number": 15, "text": "https://itpmschool.com/wp-content/uploads/2023/10/Work-breakdown-structure-chart.webp\n\nSource: itpmschool.com\n\nhttps://www.project-risk-manager.com/wp-content/uploads/2017/10/PERT-Network-Diagram-Rev0.png\n\nSource: www.project-risk-manager.com\n\nhttps://img.officetimeline.com/website/Content/templates/images/gantt-charts/software-development-gantt-chart-template.png\n\nSource: www.officetimeline.com\n\nImage Sources"}]}, {"filename": "CBS 2332 CHAPTER 4- Cost Planning.pptx", "title": "CBS 2332 CHAPTER 4- Cost Planning", "slide_count": 14, "slides": [{"number": 1, "text": "IT Project Management\n\nTopic 4: Cost Planning & Performance\n\nDiploma Level | Module 4.1 - 4.5"}, {"number": 2, "text": "Importance of Costing\n\nAccurate cost estimates are the foundation of project success. They determine feasibility and secure funding.\n\nTypes of Costs in IT\n\nUnderstanding cost behavior is crucial for accurate estimation.\n\nFeasibility: Can we afford to do this project?\n\nBaseline: Creates a standard to measure performance against.\n\nFunding: Justifies the investment to stakeholders.\n\nDirect Costs: Salaries, Software Licenses, Servers.\n\nIndirect Costs: Overhead, Office Rent, Utilities.\n\nFixed vs. Variable: One-time hardware purchase vs. monthly cloud usage fees.\n\n4.1 Project Cost Estimates"}, {"number": 3, "text": "The process of aggregating estimated costs to establish an authorized cost baseline.\n\n1. Allocate Total\n\nDistribute the total project estimate to individual work packages in the WBS.\n\n2. Aggregate\n\nSum the costs of work packages to determine the total Budgeted Cost.\n\n3. Authorize\n\nAdd contingency reserves to form the final Cost Baseline.\n\n4.2 Project Budgeting: Allocation"}, {"number": 4, "text": "4.2 Cumulative Budgeted Cost\n\nThe S-Curve\n\nProject costs are not spent linearly. Budgeting involves developing a time-phased view of costs.\n\nThis accumulation of costs over time creates the characteristic \"S-Curve\" used for monitoring performance.\n\nStart: Low spending (Planning).\n\nMiddle: Peak spending (Execution/Development).\n\nEnd: Tapering off (Closure)."}, {"number": 5, "text": ""}, {"number": 6, "text": "Actual Cost (AC)\n\nThe total cost actually incurred and recorded in accomplishing work performed during a given time period.\n\nCommitted Cost\n\nFunds that have been obligated or encumbered but not yet paid. Critical for IT procurement.\n\nSalaries paid.\n\nInvoices settled.\n\nSoftware subscriptions paid.\n\nSigned Purchase Orders (POs) for hardware.\n\nContracts signed with external vendors.\n\nWhy important? Prevents accidental overspending of the \"remaining\" budget.\n\n4.3 Determining Actual Cost"}, {"number": 7, "text": "Regular comparison allows for early detection of cost overruns.\n\nCategory | Budgeted Cost | Actual Cost | Variance\nServer Hardware | $10,000 | $12,500 | -$2,500 (Over)\nSoftware Licenses | $5,000 | $4,800 | +$200 (Under)\nDeveloper Hours | $20,000 | $18,000 | +$2,000 (Under)\nTotal | $35,000 | $35,300 | -$300 (Over)\n\n4.3 Comparing Actual vs. Budgeted"}, {"number": 8, "text": "EV = % Complete x Budget at Completion (BAC)\n\n50%\n\nBudget Spent\n\nJust because you spent 50% of the money, doesn't mean you are 50% done.\n\nEV\n\nEarned Value\n\nThe estimated value of the work actually completed. It measures how well the project is adhering to the plan.\n\n4.4 Determining Value (EV)"}, {"number": 9, "text": "Cost Variance (CV)\n\nThe amount of budget deficit or surplus at a given point in time.\n\nResult: Negative = Over Budget.\n\nCost Performance Index (CPI)\n\nA measure of the cost efficiency of budgeted resources.\n\nResult: < 1.0 = Cost Overrun.\n\n4.5 Cost Performance Analysis"}, {"number": 10, "text": "4.5 Managing Cash Flow\n\nLiquidity is King\n\nCost performance is about budget; Cash flow is about having money in the bank to pay bills.\n\nProject Managers must align the Project Schedule with the Funding Limit Reconciliation.\n\nInflow: Milestones payments from client.\n\nOutflow: Monthly salaries, hardware purchases.\n\nThe Gap: IT projects often have large upfront outflows (hardware) before inflows arrive."}, {"number": 11, "text": ""}, {"number": 12, "text": "Budget\n\nCreate the Cost Baseline (S-Curve) by aggregating estimates.\n\nTrack\n\nMonitor Actual Costs (AC) and Committed Costs.\n\nAnalyze\n\nUse CPI and CV to determine if the project is adhering to the budget.\n\nTopic 4 Summary"}, {"number": 13, "text": "Questions?\n\nIT Project Management: Cost Planning & Performance"}, {"number": 14, "text": "https://www.zerofloat.com.au/wp-content/uploads/2021/07/SCurve.png\n\nSource: www.zerofloat.com.au\n\nhttps://www.smartsheet.com/sites/default/files/2020-09/IC-Project-Cash-Flow-Template.png\n\nSource: www.smartsheet.com\n\nImage Sources"}]}]</script>
-<script id="pretestData" type="application/json">[{"type": "mcq", "topic": "Project Management Concepts", "q": "Which statement best defines a project?", "options": ["A continuous routine operation", "A temporary endeavor that creates a unique product, service, or result", "A daily business process repeated every week", "A permanent department activity"], "answer": "A temporary endeavor that creates a unique product, service, or result", "explain": "A project is temporary and produces a unique deliverable."}, {"type": "mcq", "topic": "Project Life Cycle", "q": "Which phase involves defining objectives, scope, and feasibility?", "options": ["Initiation", "Execution", "Closure", "Monitoring only"], "answer": "Initiation", "explain": "Initiation starts the project and defines high-level purpose, scope, and feasibility."}, {"type": "truefalse", "topic": "Project Life Cycle", "q": "Monitoring and Controlling runs only after Execution is fully completed.", "answer": "False", "explain": "Monitoring and Controlling runs concurrently with Execution."}, {"type": "short", "topic": "Project Management Process", "q": "State two activities involved in Monitoring and Controlling.", "sample": "Tracking project progress, identifying deviations, taking corrective action, managing risks, and reporting progress."}, {"type": "mcq", "topic": "Project Team", "q": "Which team development stage involves conflict due to differences in opinions and working styles?", "options": ["Forming", "Storming", "Norming", "Adjourning"], "answer": "Storming", "explain": "Storming is where conflict and disagreement commonly appear."}, {"type": "short", "topic": "Project Team", "q": "List three attributes of an effective project team.", "sample": "Clear goals, open communication, mutual trust and respect, collaboration, accountability, effective leadership, or constructive conflict resolution."}, {"type": "truefalse", "topic": "Ethics", "q": "Ethical behavior helps maintain trust and credibility in project management.", "answer": "True", "explain": "Ethics promotes honesty, integrity, fairness, and responsibility."}, {"type": "mcq", "topic": "Problem Solving", "q": "In brainstorming, what does 'defer judgment' mean?", "options": ["Reject weak ideas immediately", "Avoid criticizing ideas during idea generation", "Only accept ideas from managers", "Choose the final idea first"], "answer": "Avoid criticizing ideas during idea generation", "explain": "Brainstorming encourages idea generation before evaluation."}, {"type": "mcq", "topic": "Project Initiation", "q": "Which set lists key outputs from project initiation?", "options": ["Gantt chart, CPI, invoice", "Business case, project charter, initial stakeholder list", "Source code, test report, user manual", "Purchase order, salary record, contract"], "answer": "Business case, project charter, initial stakeholder list", "explain": "These are the main initiation outputs from the slides."}, {"type": "short", "topic": "Business Case", "q": "What should a business case explain?", "sample": "The problem statement, objective, benefits, feasibility, costs, and justification for the project."}, {"type": "mcq", "topic": "Stakeholder Analysis", "q": "In a Power/Interest Grid, how should high power/high interest stakeholders be managed?", "options": ["Monitor only", "Keep informed", "Keep satisfied", "Manage closely"], "answer": "Manage closely", "explain": "High power and high interest stakeholders are key players."}, {"type": "truefalse", "topic": "Stakeholders", "q": "External stakeholders are always inside the organization.", "answer": "False", "explain": "External stakeholders are outside the organization, such as vendors, customers, suppliers, regulators, and auditors."}, {"type": "short", "topic": "Project Charter", "q": "Name four components of a project charter.", "sample": "Project title and purpose, objectives and success criteria, scope and deliverables, stakeholders and roles, timeline and budget, risks and assumptions."}, {"type": "mcq", "topic": "SMART Objectives", "q": "What does the 'M' in SMART usually refer to?", "options": ["Manageable", "Measurable", "Modern", "Mandatory"], "answer": "Measurable", "explain": "Measurable means progress and success can be quantified."}, {"type": "mcq", "topic": "WBS", "q": "What is the WBS used for?", "options": ["To break total project scope into manageable work packages", "To calculate CPI only", "To replace stakeholder analysis", "To record invoices"], "answer": "To break total project scope into manageable work packages", "explain": "WBS decomposes the project scope hierarchically."}, {"type": "mcq", "topic": "RACI", "q": "In RACI, which role is the owner of the result?", "options": ["Responsible", "Accountable", "Consulted", "Informed"], "answer": "Accountable", "explain": "Responsible does the work; Accountable owns the result."}, {"type": "short", "topic": "Scheduling", "q": "Write the three-point estimation formula.", "sample": "(Optimistic + 4 × Most Likely + Pessimistic) ÷ 6."}, {"type": "mcq", "topic": "Forward Pass", "q": "What is the formula for Early Finish?", "options": ["EF = ES + Duration", "EF = LS - Duration", "EF = LF - Duration", "EF = BAC × CPI"], "answer": "EF = ES + Duration", "explain": "Forward pass calculates earliest times."}, {"type": "mcq", "topic": "Backward Pass", "q": "What is the formula for Late Start?", "options": ["LS = LF - Duration", "LS = ES + Duration", "LS = EV - AC", "LS = CV / CPI"], "answer": "LS = LF - Duration", "explain": "Backward pass calculates latest times."}, {"type": "truefalse", "topic": "Critical Path", "q": "Activities on the critical path usually have zero slack.", "answer": "True", "explain": "Critical path activities determine project duration and have zero slack."}, {"type": "short", "topic": "Gantt Chart", "q": "What does a Gantt chart show?", "sample": "A horizontal bar chart showing activities against time, including durations, overlaps, and project schedule progress."}, {"type": "mcq", "topic": "Cost Estimates", "q": "Which is an example of a direct cost in an IT project?", "options": ["Office rent", "Utilities", "Software licenses", "General company overhead"], "answer": "Software licenses", "explain": "Direct costs include salaries, software licenses, and servers."}, {"type": "mcq", "topic": "Budgeting", "q": "What is the purpose of project budgeting?", "options": ["To aggregate estimated costs into an authorized cost baseline", "To identify stakeholders only", "To close the project", "To create a conflict resolution plan"], "answer": "To aggregate estimated costs into an authorized cost baseline", "explain": "Budgeting allocates and authorizes project costs."}, {"type": "mcq", "topic": "Actual Cost", "q": "What is Actual Cost (AC)?", "options": ["The value of completed work", "The total cost actually incurred and recorded", "The original approved budget only", "The unpaid project promise only"], "answer": "The total cost actually incurred and recorded", "explain": "AC is the real cost incurred during a period."}, {"type": "truefalse", "topic": "Committed Cost", "q": "Committed costs are funds obligated but not yet paid.", "answer": "True", "explain": "Examples include signed POs and vendor contracts."}, {"type": "mcq", "topic": "Earned Value", "q": "What is the formula for Earned Value?", "options": ["EV = % Complete × BAC", "EV = AC - BAC", "EV = CPI × CV", "EV = LF - LS"], "answer": "EV = % Complete × BAC", "explain": "Earned Value measures the planned value of completed work."}, {"type": "mcq", "topic": "Cost Performance", "q": "What does CPI < 1.0 indicate?", "options": ["Under budget", "Cost overrun", "Zero risk", "Project closure"], "answer": "Cost overrun", "explain": "CPI below 1 means poor cost efficiency."}, {"type": "short", "topic": "Cash Flow", "q": "Explain the difference between cost performance and cash flow.", "sample": "Cost performance checks whether the project follows the budget, while cash flow checks whether money is available to pay bills when needed."}]</script>
-<script id="mindmapData" type="application/json">{"Project Management": {"Concepts": ["Temporary endeavor", "Unique deliverable", "Life cycle", "Initiation", "Planning", "Execution", "Monitoring & Controlling", "Closure"], "Project Team": ["Forming", "Storming", "Norming", "Performing", "Adjourning", "Ethics", "Conflict", "Problem solving", "Time management"], "Initiation & Stakeholders": ["Business case", "Project charter", "Stakeholder list", "Internal stakeholders", "External stakeholders", "Power/Interest Grid", "Engagement strategy"], "Planning & Controlling": ["SMART objectives", "WBS", "RACI", "Scheduling", "Network diagram", "Forward pass", "Backward pass", "Critical path", "Gantt chart"], "Cost Planning": ["Cost estimates", "Direct/indirect costs", "Budget baseline", "S-Curve", "Actual Cost", "Committed Cost", "Earned Value", "CV", "CPI", "Cash flow"]}}</script>
-<script id="formulaData" type="application/json">[{"name": "Three-Point Estimate", "formula": "(Optimistic + 4 × Most Likely + Pessimistic) ÷ 6", "use": "Estimate activity duration more realistically."}, {"name": "Early Finish", "formula": "EF = ES + Duration", "use": "Forward pass calculation."}, {"name": "Late Start", "formula": "LS = LF - Duration", "use": "Backward pass calculation."}, {"name": "Slack", "formula": "Slack = LS - ES", "use": "Find how long an activity can delay without delaying the project."}, {"name": "Earned Value", "formula": "EV = % Complete × BAC", "use": "Measure the planned value of work actually completed."}, {"name": "Cost Performance Index", "formula": "CPI = EV ÷ AC", "use": "Measure cost efficiency. CPI < 1.0 means cost overrun."}, {"name": "Cost Variance", "formula": "CV = EV - AC", "use": "Negative CV means over budget."}]</script>
-<script id="examData" type="application/json">{"focus": [{"title": "Project Life Cycle", "marks_focus": "Part 2 subjective focus", "must_know": ["Project life cycle is the framework for managing a project from initiation to closure.", "Initiation defines objectives, scope, feasibility, and authorization.", "Planning develops the roadmap, including scope, schedule, budget, resources, and risk planning.", "Execution carries out the planned work and produces deliverables.", "Monitoring and Controlling tracks progress, checks deviations, manages risks, and applies corrective action.", "Closure formalizes acceptance, hands over the final product, and closes project activities."], "answer_template": "The project life cycle consists of initiation, planning, execution, monitoring and controlling, and closure. It helps the project manager manage the project systematically from start to finish. Initiation defines the need and feasibility, planning prepares the scope, schedule and budget, execution carries out the work, monitoring and controlling tracks performance and corrects deviations, while closure completes handover and formal acceptance.", "likely_questions": ["Explain the project life cycle phases.", "Differentiate between execution and monitoring/controlling.", "Why is the project life cycle important?"]}, {"title": "Project Management", "marks_focus": "Part 2 subjective focus", "must_know": ["Project management is the process of managing project activities to meet project requirements.", "A project is temporary and creates a unique product, service, or result.", "Main project management processes include initiation, planning, execution, monitoring and controlling, and closure.", "Project management helps control time, cost, scope, quality, risk, communication, and stakeholder expectations.", "Benefits include better planning, improved communication, risk control, and successful delivery of objectives."], "answer_template": "Project management is the process of planning, organizing, executing, monitoring and closing project work to achieve specific objectives. It is important because projects are temporary, unique and resource-consuming. Proper project management helps control scope, time, cost, quality, risks and stakeholder communication so that the project can be completed successfully.", "likely_questions": ["Define project management.", "State the attributes of a project.", "Explain the benefits of project management."]}, {"title": "Teamwork Development", "marks_focus": "Part 2 subjective focus", "must_know": ["Project teams develop through forming, storming, norming, performing, and adjourning.", "Forming: members are introduced, uncertain, and learning the project goals.", "Storming: conflict may occur due to different opinions and working styles.", "Norming: team norms, processes, trust, and cooperation improve.", "Performing: the team works effectively and focuses on achieving project goals.", "Adjourning: the team is dissolved after project completion.", "Effective teams need clear goals, open communication, trust, collaboration, accountability, leadership, and constructive conflict resolution."], "answer_template": "Teamwork development explains how a project team grows and becomes effective. The stages are forming, storming, norming, performing and adjourning. In forming, members get to know each other. In storming, conflicts may happen. In norming, the team builds rules and cooperation. In performing, the team works at high performance. In adjourning, the team ends after project completion.", "likely_questions": ["Explain the five stages of team development.", "What makes a project team effective?", "Why does conflict occur in project teams?"]}, {"title": "Project Budgeting", "marks_focus": "Part 2 subjective focus", "must_know": ["Project budgeting aggregates estimated costs to establish an authorized cost baseline.", "Budgeting starts by allocating total estimates to WBS work packages.", "Costs are aggregated to calculate total budgeted cost.", "Contingency reserves are added to form the final cost baseline.", "S-Curve shows cumulative budgeted cost over time.", "Actual Cost (AC) is the cost actually incurred.", "Committed Cost is obligated but not yet paid.", "Earned Value (EV) = % Complete × BAC.", "CPI < 1.0 indicates cost overrun; negative CV indicates over budget."], "answer_template": "Project budgeting is the process of allocating and aggregating estimated project costs to create an authorized cost baseline. The budget is distributed to WBS work packages, combined into total budgeted cost and adjusted with contingency reserves. Budgeting helps the project manager compare planned cost with actual cost, monitor cost performance and avoid overspending.", "likely_questions": ["Explain project budgeting.", "Differentiate Actual Cost and Committed Cost.", "What is the purpose of an S-Curve?", "Explain CPI and CV."]}, {"title": "Project Planning", "marks_focus": "Part 2 subjective focus", "must_know": ["Project planning develops the roadmap for project execution.", "SMART objectives make project goals specific, measurable, achievable, realistic/relevant and time-bound.", "WBS decomposes total project scope into smaller work packages.", "RACI clarifies roles: Responsible, Accountable, Consulted, Informed.", "Scheduling identifies activities, sequences dependencies, estimates resources, and estimates durations.", "Network diagrams show logical dependencies and help identify the critical path.", "Forward pass calculates ES and EF; backward pass calculates LS and LF.", "Slack = LS - ES; critical path has zero slack.", "Gantt charts visualize activities against time."], "answer_template": "Project planning is the process of preparing how the project will be carried out. It includes setting SMART objectives, developing a WBS, assigning responsibilities using RACI, estimating durations, sequencing activities, developing a schedule, identifying the critical path and presenting the plan using tools such as network diagrams and Gantt charts.", "likely_questions": ["Explain the purpose of WBS.", "What is RACI?", "How is the critical path identified?", "Why are Gantt charts useful?"]}], "fill_blanks": [{"q": "A project is a __________ endeavor undertaken to create a unique product, service, or result.", "a": "temporary"}, {"q": "Every project has a definite beginning and __________.", "a": "end"}, {"q": "The first phase of the project life cycle is __________.", "a": "initiation"}, {"q": "The phase that develops a detailed roadmap for execution is __________.", "a": "planning"}, {"q": "Monitoring and controlling identifies deviations and takes __________ action.", "a": "corrective"}, {"q": "The final phase that formalizes acceptance is __________.", "a": "closure"}, {"q": "The five team development stages are forming, storming, norming, performing and __________.", "a": "adjourning"}, {"q": "During the __________ stage, conflict can occur because of different opinions and working styles.", "a": "storming"}, {"q": "Ethical behavior promotes honesty, integrity, fairness and __________.", "a": "responsibility"}, {"q": "A project __________ officially authorizes a project’s existence.", "a": "charter"}, {"q": "A __________ case justifies the project’s feasibility, benefits and costs.", "a": "business"}, {"q": "The Power/Interest Grid maps stakeholders based on power and __________.", "a": "interest"}, {"q": "SMART objectives should be specific, measurable, achievable and time-__________.", "a": "bound"}, {"q": "The WBS decomposes project scope into smaller work __________.", "a": "packages"}, {"q": "In RACI, R means __________.", "a": "Responsible"}, {"q": "In RACI, A means __________.", "a": "Accountable"}, {"q": "EF = ES + __________.", "a": "Duration"}, {"q": "LS = LF - __________.", "a": "Duration"}, {"q": "Slack = LS - __________.", "a": "ES"}, {"q": "Activities on the critical path have __________ slack.", "a": "zero"}, {"q": "A Gantt chart is a horizontal __________ chart used to show project schedule.", "a": "bar"}, {"q": "Actual Cost is commonly abbreviated as __________.", "a": "AC"}, {"q": "Earned Value is commonly abbreviated as __________.", "a": "EV"}, {"q": "EV = % Complete × __________.", "a": "BAC"}, {"q": "CPI less than 1.0 indicates cost __________.", "a": "overrun"}], "objective_exam": [{"q": "How many objective questions are in the final exam tips?", "options": ["20", "30", "50", "70"], "answer": "30"}, {"q": "The objective section covers which chapters?", "options": ["Chapter 1 only", "Chapter 1 until Chapter 4", "Chapter 3 only", "Chapter 4 only"], "answer": "Chapter 1 until Chapter 4"}, {"q": "How many marks are allocated to subjective questions?", "options": ["30", "50", "70", "100"], "answer": "70"}, {"q": "Part 1 of the subjective question is mainly what format?", "options": ["Essay only", "Fill in the blanks", "Presentation", "Coding"], "answer": "Fill in the blanks"}, {"q": "Which topic was specifically mentioned for Part 2 subjective?", "options": ["Project Life Cycle", "Database Normalization", "Subnetting", "HTML Forms"], "answer": "Project Life Cycle"}, {"q": "Which cost topic was specifically mentioned for Part 2?", "options": ["Project Budgeting", "Python Programming", "Cyber Law", "Routing Protocol"], "answer": "Project Budgeting"}, {"q": "Teamwork Development belongs mainly to which chapter?", "options": ["Chapter 1", "Chapter 2", "Chapter 4", "None"], "answer": "Chapter 2"}, {"q": "Project Planning belongs mainly to which chapter deck?", "options": ["Planning and Controlling", "Cost Planning only", "Project Team only", "Ethics only"], "answer": "Planning and Controlling"}, {"q": "Which phase closes the project officially?", "options": ["Initiation", "Planning", "Closure", "Storming"], "answer": "Closure"}, {"q": "Which team stage comes after storming?", "options": ["Forming", "Norming", "Adjourning", "Closure"], "answer": "Norming"}]}</script>
-<script id="referenceSlidesData" type="application/json">[{"title": "CBS 2332 CHAPTER 1 - Project_Management_Concepts", "pptx": "original_slides/CBS_2332_CHAPTER_1_-_Project_Management_Concepts.pptx", "pdf": "slide_pdfs/CBS_2332_CHAPTER_1_-_Project_Management_Concepts.pdf"}, {"title": "CBS2332 CHAPTER 2- THE PROJECT TEAM", "pptx": "original_slides/CBS2332_CHAPTER_2-_THE_PROJECT_TEAM.pptx", "pdf": "slide_pdfs/CBS2332_CHAPTER_2-_THE_PROJECT_TEAM.pdf"}, {"title": "[MR ZAKI] CBS 2332 CHAPTER 3 - Project Initiation & Stakeholder", "pptx": "original_slides/MR_ZAKI_CBS_2332_CHAPTER_3_-_Project_Initiation_&_Stakeholder.pptx", "pdf": "slide_pdfs/MR_ZAKI_CBS_2332_CHAPTER_3_-_Project_Initiation_&_Stakeholder.pdf"}, {"title": "CBS 2332 CHAPTER 3 - Planning and Controlling", "pptx": "original_slides/CBS_2332_CHAPTER_3_-_Planning_and_Controlling.pptx", "pdf": "slide_pdfs/CBS_2332_CHAPTER_3_-_Planning_and_Controlling.pdf"}, {"title": "CBS 2332 CHAPTER 4- Cost Planning", "pptx": "original_slides/CBS_2332_CHAPTER_4-_Cost_Planning.pptx", "pdf": "slide_pdfs/CBS_2332_CHAPTER_4-_Cost_Planning.pdf"}]</script>
 <script>
-
-const decks = JSON.parse(document.getElementById('decksData').textContent);
-const pretest = JSON.parse(document.getElementById('pretestData').textContent);
-const mindmap = JSON.parse(document.getElementById('mindmapData').textContent);
-const formulas = JSON.parse(document.getElementById('formulaData').textContent);
-
-const deckNav = document.getElementById('deckNav');
-const content = document.getElementById('content');
-const dialog = document.getElementById('dialog');
-const dialogContent = document.getElementById('dialogContent');
-
-function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
-function id(s){return s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'')}
-function key(di,si){return `v3-slide-${di}-${si}`}
-function firstLine(text){let line=(text||'').split(/
-+/).map(x=>x.trim()).find(Boolean); return line || 'Blank / visual-only slide'}
-function summarize(text){
-  if(!text) return "This slide appears to be blank or visual-only in the extracted text.";
-  let lines=text.split(/
-+/).map(x=>x.trim()).filter(Boolean);
-  let useful=lines.filter(x=>!x.startsWith('http') && !x.toLowerCase().startsWith('source:') && !/^_+$/.test(x));
-  return useful.slice(0,4).join(" • ") || "Image/source/reference slide.";
-}
-function renderStats(){
-  document.getElementById('deckCount').textContent = decks.length;
-  document.getElementById('slideCount').textContent = decks.reduce((n,d)=>n+d.slides.length,0);
-  document.getElementById('questionCount').textContent = pretest.length;
-}
-function renderSlides(){
-  deckNav.innerHTML=decks.map(d=>`<a href="#${id(d.title)}">${esc(d.title.replace('CBS 2332 ','').replace('CBS2332 ','').slice(0,44))}</a>`).join('');
-  let html='';
-  decks.forEach((deck,di)=>{
-    html+=`<article class="deck" id="${id(deck.title)}">
-      <div class="deckTitle"><div><h3>${esc(deck.title)}</h3><p>${deck.slide_count} slides</p></div></div>
-      <div class="card">`;
-    deck.slides.forEach((slide,si)=>{
-      const text=slide.text||'';
-      const checked=localStorage.getItem(key(di,si))==='1'?'checked':'';
-      html+=`<details class="slide" open data-text="${esc((deck.title+' '+text).toLowerCase())}">
-        <summary><input class="tick" type="checkbox" data-key="${key(di,si)}" ${checked} onclick="event.stopPropagation()">Slide ${slide.number}: ${esc(firstLine(text))}</summary>
-        <div class="slideBody">
-          <div class="slideText ${text?'':'empty'}">${text?esc(text):'No extractable text found. This is likely a blank, image-only, or decorative slide.'}</div>
-          <div class="studyBox"><strong>Study focus:</strong> ${esc(summarize(text))}</div>
-          <div class="actions">
-            <button onclick="flash(${di},${si})">Flashcard this slide</button>
-            <button onclick="copySlide(${di},${si})">Copy slide text</button>
-          </div>
-        </div>
-      </details>`;
-    });
-    html+='</div></article>';
-  });
-  content.innerHTML=html;
-  bindTicks(); progress();
-}
-function renderPretest(){
-  const box = document.getElementById('pretestContent');
-  box.innerHTML = pretest.map((q,i)=>{
-    if(q.type==='mcq'){
-      return `<div class="question" data-type="mcq" data-answer="${esc(q.answer)}">
-        <h4>${i+1}. [${esc(q.topic)}] ${esc(q.q)}</h4>
-        <div class="options">${q.options.map((opt,j)=>`<label class="option"><input type="radio" name="q${i}" value="${esc(opt)}"> <span>${esc(opt)}</span></label>`).join('')}</div>
-        <div class="sampleAnswer"><strong>Explanation:</strong> ${esc(q.explain)}</div>
-      </div>`;
-    }
-    if(q.type==='truefalse'){
-      return `<div class="question" data-type="truefalse" data-answer="${esc(q.answer)}">
-        <h4>${i+1}. [${esc(q.topic)}] ${esc(q.q)}</h4>
-        <div class="options">
-          <label class="option"><input type="radio" name="q${i}" value="True"> <span>True</span></label>
-          <label class="option"><input type="radio" name="q${i}" value="False"> <span>False</span></label>
-        </div>
-        <div class="sampleAnswer"><strong>Explanation:</strong> ${esc(q.explain)}</div>
-      </div>`;
-    }
-    return `<div class="question" data-type="short">
-      <h4>${i+1}. [${esc(q.topic)}] ${esc(q.q)}</h4>
-      <textarea class="textarea" placeholder="Write your answer here..."></textarea>
-      <button class="showSample" type="button">Show sample answer</button>
-      <div class="sampleAnswer"><strong>Sample answer:</strong> ${esc(q.sample)}</div>
-    </div>`;
-  }).join('');
-  document.querySelectorAll('.showSample').forEach(btn=>btn.addEventListener('click',e=>e.target.nextElementSibling.style.display='block'));
-}
-function renderMindmap(){
-  const root = Object.keys(mindmap)[0];
-  const branches = mindmap[root];
-  document.getElementById('mindmapContent').innerHTML = `<div class="mapRoot">${esc(root)}</div><div class="mapBranches">`+
-    Object.entries(branches).map(([k,items])=>`<div class="branch"><h4>${esc(k)}</h4><ul>${items.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`).join('')+
-    `</div>`;
-}
-function renderFormulas(){
-  document.getElementById('formulaContent').innerHTML = formulas.map(f=>`<div class="formula"><h4>${esc(f.name)}</h4><code>${esc(f.formula)}</code><p>${esc(f.use)}</p></div>`).join('');
-}
-function bindTicks(){document.querySelectorAll('.tick').forEach(t=>t.addEventListener('change',e=>{localStorage.setItem(e.target.dataset.key,e.target.checked?'1':'0');progress()}))}
-function progress(){let total=document.querySelectorAll('.tick').length;let done=[...document.querySelectorAll('.tick')].filter(x=>x.checked).length;document.getElementById('done').textContent=done;document.getElementById('total').textContent=total;document.getElementById('bar').style.width=(total?done/total*100:0)+'%';document.getElementById('completedPct').textContent=Math.round(total?done/total*100:0)+'%'}
-window.flash=(di,si)=>{
-  const deck=decks[di], slide=deck.slides[si]; let flipped=false;
-  function draw(){
-    dialogContent.innerHTML=`<h2>Flashcard</h2><p class="muted">${esc(deck.title)} · Slide ${slide.number}</p>
-      <div class="flash" id="fc">${flipped?`<pre>${esc(slide.text||'No extractable text.')}</pre>`:`<div><h3>Slide ${slide.number}</h3><p>${esc(firstLine(slide.text))}</p><p>Click to reveal full slide text.</p></div>`}</div>`;
-    document.getElementById('fc').onclick=()=>{flipped=!flipped;draw()}
-  }
-  draw(); dialog.showModal();
-}
-window.copySlide=async(di,si)=>{const d=decks[di],s=d.slides[si];await navigator.clipboard.writeText(`${d.title}
-Slide ${s.number}
-
-${s.text||''}`);alert('Slide text copied.')}
-document.getElementById('expand').onclick=()=>document.querySelectorAll('details.slide').forEach(x=>x.open=true);
-document.getElementById('collapse').onclick=()=>document.querySelectorAll('details.slide').forEach(x=>x.open=false);
-document.getElementById('print').onclick=()=>window.print();
-document.getElementById('close').onclick=()=>dialog.close();
-document.getElementById('reset').onclick=()=>{if(confirm('Reset slide progress?')){Object.keys(localStorage).filter(k=>k.startsWith('v3-slide-')).forEach(k=>localStorage.removeItem(k));document.querySelectorAll('.tick').forEach(x=>x.checked=false);progress()}};
-document.getElementById('startPretest').onclick=()=>{
-  document.querySelectorAll('#pretestContent input[type=radio]').forEach(x=>x.checked=false);
-  document.querySelectorAll('#pretestContent textarea').forEach(x=>x.value='');
-  document.querySelectorAll('.option').forEach(x=>x.classList.remove('correct','wrong'));
-  document.querySelectorAll('.sampleAnswer').forEach(x=>x.style.display='none');
-  document.getElementById('scoreBox').classList.add('hidden');
-  location.hash='pretest';
-};
-document.getElementById('checkPretest').onclick=()=>{
-  let objective=0, correct=0;
-  document.querySelectorAll('#pretestContent .question').forEach((q,i)=>{
-    const type=q.dataset.type;
-    if(type==='mcq'||type==='truefalse'){
-      objective++;
-      const ans=q.dataset.answer;
-      const chosen=q.querySelector('input[type=radio]:checked');
-      q.querySelectorAll('.option').forEach(opt=>{
-        const val=opt.querySelector('input').value;
-        opt.classList.remove('correct','wrong');
-        if(val===ans) opt.classList.add('correct');
-        if(chosen && val===chosen.value && val!==ans) opt.classList.add('wrong');
-      });
-      q.querySelector('.sampleAnswer').style.display='block';
-      if(chosen && chosen.value===ans) correct++;
+function checkMCQ(){
+  let total = 0, correct = 0;
+  document.querySelectorAll('.q').forEach(q => {
+    total++;
+    q.classList.remove('correct','wrong');
+    const ans = q.dataset.answer;
+    const chosen = q.querySelector('input:checked');
+    const answerBox = q.querySelector('.answer');
+    if(chosen && chosen.value === ans) {
+      correct++;
+      q.classList.add('correct');
+      answerBox.textContent = 'Correct';
     } else {
-      q.querySelector('.sampleAnswer').style.display='block';
+      q.classList.add('wrong');
+      answerBox.textContent = 'Answer: ' + ans;
     }
   });
-  const subjective = pretest.filter(q=>q.type==='short').length;
-  const pct=Math.round(correct/objective*100);
-  const score=document.getElementById('scoreBox');
-  score.classList.remove('hidden');
-  score.innerHTML=`<h3>Objective Score: ${correct}/${objective} (${pct}%)</h3><p>There are ${subjective} subjective questions. Compare your answers with the sample answers and self-mark them.</p>`;
-  score.scrollIntoView({behavior:'smooth',block:'center'});
-};
-document.getElementById('search').addEventListener('input',e=>{
-  const q=e.target.value.toLowerCase().trim();
-  document.querySelectorAll('details.slide').forEach(sl=>{
-    const match=!q||sl.dataset.text.includes(q);
-    sl.classList.toggle('hidden',!match);
-    if(q&&match)sl.open=true;
-  });
-  document.querySelectorAll('.deck').forEach(deck=>{
-    deck.classList.toggle('hidden',![...deck.querySelectorAll('details.slide')].some(x=>!x.classList.contains('hidden')));
-  });
-});
-document.getElementById('flashcards').onclick=()=>{
-  const cards=[]; decks.forEach((d,di)=>d.slides.forEach((s,si)=>cards.push({d,s,di,si})));
-  let i=0, flipped=false;
-  function draw(){
-    const c=cards[i];
-    dialogContent.innerHTML=`<h2>All Slide Flashcards</h2><p class="muted">${i+1}/${cards.length} · ${esc(c.d.title)} · Slide ${c.s.number}</p>
-      <div class="flash" id="allfc">${flipped?`<pre>${esc(c.s.text||'No extractable text.')}</pre>`:`<div><h3>Slide ${c.s.number}</h3><p>${esc(firstLine(c.s.text))}</p><p>Click to reveal full slide text.</p></div>`}</div>
-      <div class="testActions" style="margin-top:12px"><button id="prev">Previous</button><button id="flip">Flip</button><button id="next">Next</button></div>`;
-    document.getElementById('allfc').onclick=()=>{flipped=!flipped;draw()};
-    document.getElementById('flip').onclick=()=>{flipped=!flipped;draw()};
-    document.getElementById('prev').onclick=()=>{i=(i-1+cards.length)%cards.length;flipped=false;draw()};
-    document.getElementById('next').onclick=()=>{i=(i+1)%cards.length;flipped=false;draw()};
-  }
-  draw(); dialog.showModal();
-};
-window.addEventListener("scroll", ()=>{
-  let current="";
-  decks.forEach(d=>{
-    const el=document.getElementById(id(d.title));
-    if(el && el.getBoundingClientRect().top<150) current=id(d.title);
-  });
-  document.querySelectorAll("#deckNav a").forEach(a=>a.classList.toggle("active", a.getAttribute("href")==="#"+current));
-});
-renderStats(); renderPretest(); renderMindmap(); renderFormulas(); renderSlides();
-
-const examData = JSON.parse(document.getElementById('examData').textContent);
-
-function renderExamFocus(){
-  const cards = document.getElementById('examFocusCards');
-  if(!cards) return;
-  cards.innerHTML = examData.focus.map((f,idx)=>`
-    <div class="focusCard">
-      <span class="tag">${esc(f.marks_focus)}</span>
-      <h5>${idx+1}. ${esc(f.title)}</h5>
-      <ul>${f.must_know.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>
-      <details>
-        <summary>Ready-made subjective answer template</summary>
-        <div class="inside"><p>${esc(f.answer_template)}</p></div>
-      </details>
-      <details>
-        <summary>Likely question styles</summary>
-        <div class="inside"><ul>${f.likely_questions.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
-      </details>
-    </div>
-  `).join('');
-
-  const obj = document.getElementById('examObjectiveDrill');
-  obj.innerHTML = examData.objective_exam.map((q,i)=>`
-    <div class="question examObj" data-answer="${esc(q.answer)}">
-      <h4>${i+1}. ${esc(q.q)}</h4>
-      <div class="options">${q.options.map(opt=>`<label class="option"><input type="radio" name="examObj${i}" value="${esc(opt)}"> <span>${esc(opt)}</span></label>`).join('')}</div>
-    </div>
-  `).join('');
-
-  const blanks = document.getElementById('fillBlankDrill');
-  blanks.innerHTML = examData.fill_blanks.map((q,i)=>`
-    <div class="blankItem" data-answer="${esc(q.a.toLowerCase())}">
-      <div>
-        <strong>${i+1}.</strong> ${esc(q.q)}
-        <div class="blankAnswer">Answer: ${esc(q.a)}</div>
-      </div>
-      <input type="text" placeholder="Your answer">
-    </div>
-  `).join('');
+  document.getElementById('mcqScore').textContent = 'Score: ' + correct + '/' + total;
 }
 
-document.addEventListener('click', function(e){
-  if(e.target && e.target.id === 'checkExamObjective'){
-    let total=0, correct=0;
-    document.querySelectorAll('.examObj').forEach(q=>{
-      total++;
-      const ans = q.dataset.answer;
-      const chosen = q.querySelector('input[type=radio]:checked');
-      q.querySelectorAll('.option').forEach(opt=>{
-        const val = opt.querySelector('input').value;
-        opt.classList.remove('correct','wrong');
-        if(val===ans) opt.classList.add('correct');
-        if(chosen && val===chosen.value && val!==ans) opt.classList.add('wrong');
-      });
-      if(chosen && chosen.value===ans) correct++;
-    });
-    const box = document.getElementById('examObjectiveScore');
-    box.classList.remove('hidden');
-    box.innerHTML = `<h3>Objective Drill Score: ${correct}/${total}</h3><p>Review the green answers, then revise the linked topic in the focus cards above.</p>`;
-    box.scrollIntoView({behavior:'smooth',block:'center'});
-  }
-
-  if(e.target && e.target.id === 'checkFillBlanks'){
-    let total=0, correct=0;
-    document.querySelectorAll('.blankItem').forEach(item=>{
-      total++;
-      const ans = item.dataset.answer.trim().toLowerCase();
-      const val = item.querySelector('input').value.trim().toLowerCase();
-      item.classList.remove('correct','wrong');
-      if(val && val === ans){ item.classList.add('correct'); correct++; }
-      else item.classList.add('wrong');
-    });
-    const box = document.getElementById('fillBlankScore');
-    box.classList.remove('hidden');
-    box.innerHTML = `<h3>Fill-in-the-Blanks Score: ${correct}/${total}</h3><p>Spelling matters for this drill. Some answers may have equivalent wording in real exams, but memorize the key terms shown.</p>`;
-    box.scrollIntoView({behavior:'smooth',block:'center'});
-  }
-});
-
-renderExamFocus();
-
-const referenceSlidesData = JSON.parse(document.getElementById('referenceSlidesData').textContent);
-
-function renderReferenceSlides(){
-  const box = document.getElementById('referenceSlideCards');
-  if(!box) return;
-  box.innerHTML = referenceSlidesData.map((item, idx)=>{
-    const pdfBtn = item.pdf ? `<a href="${esc(item.pdf)}" target="_blank">View PDF</a>` : '';
-    const pptxBtn = `<a class="secondary" href="${esc(item.pptx)}" download>Download PPTX</a>`;
-    const preview = item.pdf ? `<details class="slidePreview"><summary>Preview inside website</summary><iframe src="${esc(item.pdf)}"></iframe></details>` : `<div class="embedHint">PDF preview was not generated, but the original PPTX is included for download.</div>`;
-    return `<div class="refCard">
-      <h4>${idx+1}. ${esc(item.title)}</h4>
-      <p>Original lecturer slide deck reference.</p>
-      <div class="refActions">${pdfBtn}${pptxBtn}</div>
-      ${preview}
-    </div>`;
-  }).join('');
+function checkBlanks(){
+  let total = 0, correct = 0;
+  document.querySelectorAll('.blank').forEach(b => {
+    total++;
+    b.classList.remove('correct','wrong');
+    const ans = b.dataset.answer.trim().toLowerCase();
+    const val = b.querySelector('input').value.trim().toLowerCase();
+    const span = b.querySelector('span');
+    if(val && val === ans) {
+      correct++;
+      b.classList.add('correct');
+      span.textContent = ' Correct';
+    } else {
+      b.classList.add('wrong');
+      span.textContent = ' Answer: ' + b.dataset.answer;
+    }
+  });
+  document.getElementById('blankScore').textContent = 'Score: ' + correct + '/' + total;
 }
 
-renderReferenceSlides();
-
+function searchSite(){
+  const q = document.getElementById('search').value.toLowerCase().trim();
+  document.querySelectorAll('main section.card').forEach(sec => {
+    const match = !q || sec.innerText.toLowerCase().includes(q);
+    sec.classList.toggle('hidden', !match);
+  });
+}
 </script>
 </body>
 </html>
